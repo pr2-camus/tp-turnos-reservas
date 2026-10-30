@@ -1,0 +1,23 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "turnos",
+    "buildTool": "maven",
+    "cacheProvider": "no",
+    "creationTimestamp": 1703151104382,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "enableHibernateCache": false,
+    "entities": [],
+    "jhipsterVersion": "9.4.0",
+    "jwtSecretKey": "OGVkYWRkZjM3ZjY3ZTQxMzhiZTM3MGQ5YzY1NjRhOWZkZWRhZWE0NTE1YjE0NGVhMzcxOGNiYTg2Y2I0Y2QwYjcyOGMyNWU4NzIyOWRjNzk0YjNhYjI2OTQ0ZjZjMTgxMmVlMDcyNmQ0NDk3ZTQ2M2U3ZjQzYjY3MjExNjIzOWU=",
+    "languages": ["en"],
+    "nativeLanguage": "en",
+    "packageName": "ar.edu.um.prog2.camus.turnos",
+    "prodDatabaseType": "postgresql",
+    "serverPort": "8082",
+    "serviceDiscoveryType": "no",
+    "skipClient": true
+  }
+}

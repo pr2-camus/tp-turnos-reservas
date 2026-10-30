@@ -1,0 +1,17 @@
+application {
+  config {
+    baseName turnos
+    applicationType monolith
+    packageName ar.edu.um.prog2.camus.turnos
+    authenticationType jwt
+    buildTool maven
+    databaseType sql
+    devDatabaseType postgresql
+    prodDatabaseType postgresql
+    cacheProvider no
+    enableHibernateCache false
+    serviceDiscoveryType no
+    serverPort 8082
+    skipClient true
+  }
+}
