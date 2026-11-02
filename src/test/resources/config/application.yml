@@ -93,3 +93,10 @@ management:
   health:
     mail:
       enabled: false
+
+catedra:
+  api-url: http://localhost:9999
+  jwt: test
+
+catalog:
+  url: http://localhost:9998
