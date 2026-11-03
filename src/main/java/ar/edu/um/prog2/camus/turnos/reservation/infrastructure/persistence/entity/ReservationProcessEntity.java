@@ -2,6 +2,7 @@ package ar.edu.um.prog2.camus.turnos.reservation.infrastructure.persistence.enti
 
 import ar.edu.um.prog2.camus.turnos.reservation.domain.model.ReservationStatus;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -39,7 +40,8 @@ public class ReservationProcessEntity {
     @Column(name = "appointment_date", nullable = false)
     private LocalDate date;
 
-    @Column(name = "start_time", nullable = false)
+    @Convert(converter = LocalTimeStringConverter.class)
+    @Column(name = "start_time", nullable = false, length = 5)
     private LocalTime startTime;
 
     @Column(name = "expires_at", nullable = false)
