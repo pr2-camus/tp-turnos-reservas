@@ -39,6 +39,26 @@ public class ReservationProcess {
         this.status = ReservationStatus.HOLD_CREATED;
     }
 
+    /** Reconstruye un proceso ya guardado, con su estado actual. */
+    public static ReservationProcess restore(
+        Long id,
+        Long userId,
+        String holdId,
+        String reservationProcessId,
+        String requestEventId,
+        Long professionalId,
+        LocalDate date,
+        LocalTime startTime,
+        Instant expiresAt,
+        ReservationStatus status
+    ) {
+        ReservationProcess p = new ReservationProcess(userId, holdId, reservationProcessId, professionalId, date, startTime, expiresAt);
+        p.id = id;
+        p.requestEventId = requestEventId;
+        p.status = status;
+        return p;
+    }
+
     /** Cambia de estado si la transicion es valida; si no, lanza un error de conflicto. */
     public void transitionTo(ReservationStatus next) {
         if (!status.canTransitionTo(next)) {
