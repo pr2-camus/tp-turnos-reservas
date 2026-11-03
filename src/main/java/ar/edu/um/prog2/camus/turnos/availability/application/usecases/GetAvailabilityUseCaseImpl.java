@@ -33,12 +33,12 @@ public class GetAvailabilityUseCaseImpl implements GetAvailabilityUseCase {
         if (agenda.isEmpty()) {
             return Optional.empty();
         }
-        if (!agenda.get().professional().enabled()) {
+        if (!agenda.orElseThrow().professional().enabled()) {
             return Optional.of(List.of());
         }
 
         List<WeeklySchedule> schedules = agenda
-            .get()
+            .orElseThrow()
             .weeklySchedules()
             .stream()
             .filter(WeeklySchedule::enabled)

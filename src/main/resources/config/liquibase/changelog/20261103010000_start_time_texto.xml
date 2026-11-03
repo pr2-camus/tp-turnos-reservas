@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="20261103010000-1" author="zoe">
+        <comment>La hora del turno se guarda como texto HH:mm para evitar el corrimiento por zona horaria.</comment>
+        <sql>delete from reservation_process</sql>
+        <modifyDataType tableName="reservation_process" columnName="start_time" newDataType="varchar(5)"/>
+    </changeSet>
+</databaseChangeLog>

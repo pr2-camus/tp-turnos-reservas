@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="20261103000000-1" author="zoe">
+        <comment>Procesos de reserva de cada usuario.</comment>
+        <createTable tableName="reservation_process">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint"><constraints nullable="false"/></column>
+            <column name="hold_id" type="varchar(100)"><constraints nullable="false"/></column>
+            <column name="reservation_process_id" type="varchar(100)"><constraints nullable="false" unique="true"/></column>
+            <column name="request_event_id" type="varchar(100)"/>
+            <column name="professional_id" type="bigint"><constraints nullable="false"/></column>
+            <column name="appointment_date" type="date"><constraints nullable="false"/></column>
+            <column name="start_time" type="time"><constraints nullable="false"/></column>
+            <column name="expires_at" type="timestamp"><constraints nullable="false"/></column>
+            <column name="status" type="varchar(30)"><constraints nullable="false"/></column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
