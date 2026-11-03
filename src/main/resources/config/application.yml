@@ -94,7 +94,7 @@ spring:
     name: turnos
   docker:
     compose:
-      enabled: true
+      enabled: false
       lifecycle-management: start-only
       file: src/main/docker/services.yml
   profiles:
@@ -110,6 +110,19 @@ spring:
         #- tls
   jmx:
     enabled: false
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP}
+    consumer:
+      group-id: ${KAFKA_GROUP_ID}
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      ack-mode: manual
   data:
     jpa:
       repositories:
@@ -226,3 +239,8 @@ catalog:
   url: ${CATALOG_URL:http://localhost:8081}
   connect-timeout: ${CATALOG_CONNECT_TIMEOUT:PT3S}
   read-timeout: ${CATALOG_READ_TIMEOUT:PT5S}
+
+kafka:
+  topics:
+    acciones: ${KAFKA_ACTIONS_TOPIC}
+    telefono: ${KAFKA_PHONE_TOPIC}

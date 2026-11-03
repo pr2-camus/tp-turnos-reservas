@@ -274,6 +274,10 @@
             <artifactId>bcprov-jdk18on</artifactId>
             <version>1.86</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-kafka</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

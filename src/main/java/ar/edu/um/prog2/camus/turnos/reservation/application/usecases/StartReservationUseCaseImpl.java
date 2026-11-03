@@ -68,7 +68,12 @@ public class StartReservationUseCaseImpl implements StartReservationUseCase {
             throw e;
         }
 
-        process.transitionTo(ReservationStatus.WAITING_FOR_PHONE);
-        return repository.save(process);
+        // El listener pudo adelantarse y actualizar el proceso: se relee para no pisar sus cambios.
+        ReservationProcess current = repository.findByReservationProcessId(hold.reservationProcessId()).orElse(process);
+        if (current.getStatus() == ReservationStatus.HOLD_CREATED) {
+            current.transitionTo(ReservationStatus.WAITING_FOR_PHONE);
+            return repository.save(current);
+        }
+        return current;
     }
 }
