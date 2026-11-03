@@ -42,7 +42,7 @@ public class GetAvailabilityUseCaseImpl implements GetAvailabilityUseCase {
             .weeklySchedules()
             .stream()
             .filter(WeeklySchedule::enabled)
-            .filter(s -> s.dayOfWeek() == date.getDayOfWeek())
+            .filter(s -> s.dayOfWeek().equals(date.getDayOfWeek()))
             .toList();
         if (schedules.isEmpty()) {
             return Optional.of(List.of());
