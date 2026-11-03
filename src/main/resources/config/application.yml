@@ -215,3 +215,14 @@ jhipster:
 # ===================================================================
 
 # application:
+
+catedra:
+  api-url: ${CATEDRA_API_URL}
+  jwt: ${CATEDRA_JWT}
+  connect-timeout: ${CATEDRA_CONNECT_TIMEOUT:PT3S}
+  read-timeout: ${CATEDRA_READ_TIMEOUT:PT10S}
+
+catalog:
+  url: ${CATALOG_URL:http://localhost:8081}
+  connect-timeout: ${CATALOG_CONNECT_TIMEOUT:PT3S}
+  read-timeout: ${CATALOG_READ_TIMEOUT:PT5S}
