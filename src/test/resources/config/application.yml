@@ -100,3 +100,10 @@ catedra:
 
 catalog:
   url: http://localhost:9998
+
+kafka:
+  listener:
+    enabled: false
+  topics:
+    acciones: test.acciones
+    telefono: test.telefono
