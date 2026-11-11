@@ -19,6 +19,8 @@ import java.time.LocalTime;
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 
 class ProcessReservationEventUseCaseImplTest {
 
@@ -44,14 +46,19 @@ class ProcessReservationEventUseCaseImplTest {
             LocalTime.of(12, 0),
             Instant.parse("2026-11-09T15:00:00Z")
         );
-        if (target != ReservationStatus.HOLD_CREATED) {
-            p.transitionTo(target == ReservationStatus.EXPIRED ? ReservationStatus.EXPIRED : ReservationStatus.WAITING_FOR_PHONE);
+        if (target == ReservationStatus.EXPIRED) {
+            p.transitionTo(ReservationStatus.EXPIRED);
+        } else if (target != ReservationStatus.HOLD_CREATED) {
+            p.transitionTo(ReservationStatus.WAITING_FOR_PHONE);
         }
-        if (target == ReservationStatus.PHONE_SUBMITTED || target == ReservationStatus.CONFIRMED) {
+        if (target == ReservationStatus.PHONE_SUBMITTED || target == ReservationStatus.CONFIRMED || target == ReservationStatus.CANCELLED) {
             p.transitionTo(ReservationStatus.PHONE_SUBMITTED);
         }
-        if (target == ReservationStatus.CONFIRMED) {
+        if (target == ReservationStatus.CONFIRMED || target == ReservationStatus.CANCELLED) {
             p.transitionTo(ReservationStatus.CONFIRMED);
+        }
+        if (target == ReservationStatus.CANCELLED || target == ReservationStatus.INVALID || target == ReservationStatus.FAILED) {
+            p.transitionTo(target);
         }
         when(repository.findByReservationProcessId("process-1")).thenReturn(Optional.of(p));
         return p;
@@ -120,12 +127,13 @@ class ProcessReservationEventUseCaseImplTest {
         verify(repository, never()).save(any());
     }
 
-    @Test
-    void unEventoTardioSobreUnEstadoFinalNoReabreElProceso() {
-        ReservationProcess p = processIn(ReservationStatus.EXPIRED);
+    @ParameterizedTest
+    @EnumSource(value = ReservationStatus.class, names = { "EXPIRED", "INVALID", "FAILED", "CANCELLED" })
+    void unEventoTardioSobreUnEstadoFinalNoReabreElProceso(ReservationStatus finalStatus) {
+        ReservationProcess p = processIn(finalStatus);
         send("ev-1", ReservationEventType.CONFIRMED);
         send("ev-2", ReservationEventType.INFORMATION_REQUESTED);
-        assertThat(p.getStatus()).isEqualTo(ReservationStatus.EXPIRED);
+        assertThat(p.getStatus()).isEqualTo(finalStatus);
         assertThat(p.getRequestEventId()).isNull();
     }
 
