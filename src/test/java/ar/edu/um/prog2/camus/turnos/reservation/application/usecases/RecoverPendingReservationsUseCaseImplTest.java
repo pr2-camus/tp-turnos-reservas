@@ -173,4 +173,16 @@ class RecoverPendingReservationsUseCaseImplTest {
         assertThat(enviado.getStatus()).isEqualTo(ReservationStatus.PHONE_SUBMITTED);
         verify(repository, never()).save(any());
     }
+
+    @Test
+    void unProcesoVencidoQueLaCatedraDaPorFallidoSeRegistraComoVencido() {
+        ReservationProcess p = process("p1", ReservationStatus.WAITING_FOR_PHONE, PASADO);
+        abiertos(p);
+        catedraDice(new CatedraReservation("p1", CatedraReservationStatus.FAILED));
+
+        useCase.recover();
+
+        assertThat(p.getStatus()).isEqualTo(ReservationStatus.EXPIRED);
+        verify(repository).save(p);
+    }
 }

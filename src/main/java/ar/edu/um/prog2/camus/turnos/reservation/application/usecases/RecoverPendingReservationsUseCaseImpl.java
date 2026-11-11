@@ -54,8 +54,9 @@ public class RecoverPendingReservationsUseCaseImpl implements RecoverPendingRese
 
         for (ReservationProcess p : open) {
             try {
+                ReservationStatus before = p.getStatus();
                 // Primero la catedra: un telefono enviado puede haberse confirmado aunque se perdio el evento.
-                boolean reconciledNow = available && reconcile(p, remote.get(p.getReservationProcessId()));
+                boolean reconciledNow = available && reconcile(p, remote.get(p.getReservationProcessId()), now);
                 // Sin respuesta de la catedra no se vence un proceso con telefono enviado: podria estar confirmado.
                 boolean canExpire = available || p.getStatus() != ReservationStatus.PHONE_SUBMITTED;
                 boolean expiredNow = !reconciledNow && canExpire && p.isExpiredAt(now);
@@ -64,6 +65,7 @@ public class RecoverPendingReservationsUseCaseImpl implements RecoverPendingRese
                 }
                 if (reconciledNow || expiredNow) {
                     repository.save(p);
+                    log.info("Recuperacion: proceso {} pasa de {} a {}", p.getReservationProcessId(), before, p.getStatus());
                     reconciled += reconciledNow ? 1 : 0;
                     expired += expiredNow ? 1 : 0;
                 }
@@ -88,7 +90,7 @@ public class RecoverPendingReservationsUseCaseImpl implements RecoverPendingRese
     }
 
     /** Alinea el proceso local con lo que dice la catedra. Devuelve true si cambio. */
-    private boolean reconcile(ReservationProcess p, CatedraReservationStatus remote) {
+    private boolean reconcile(ReservationProcess p, CatedraReservationStatus remote, Instant now) {
         if (remote == null) {
             return false;
         }
@@ -110,7 +112,8 @@ public class RecoverPendingReservationsUseCaseImpl implements RecoverPendingRese
                     log.warn("Proceso {} confirmado localmente pero FAILED en la catedra: se deja como esta.", p.getReservationProcessId());
                     yield false;
                 }
-                p.transitionTo(ReservationStatus.FAILED);
+                // En la catedra FAILED agrupa fallos y vencimientos: si ya paso el plazo, se registra como vencido.
+                p.transitionTo(p.isExpiredAt(now) ? ReservationStatus.EXPIRED : ReservationStatus.FAILED);
                 yield true;
             }
             case PHONE_PENDING, UNKNOWN -> false;
