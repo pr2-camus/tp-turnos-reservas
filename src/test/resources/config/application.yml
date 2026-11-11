@@ -107,4 +107,4 @@ kafka:
   topics:
     acciones: test.acciones
     telefono: test.telefono
-  group-id: test-group
+  integration-group-id: test-group

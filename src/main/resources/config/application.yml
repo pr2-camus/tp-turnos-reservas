@@ -244,4 +244,4 @@ kafka:
   topics:
     acciones: ${KAFKA_ACTIONS_TOPIC}
     telefono: ${KAFKA_PHONE_TOPIC}
-  group-id: ${CATEDRA_GROUP_ID}
+  integration-group-id: ${CATEDRA_GROUP_ID}
