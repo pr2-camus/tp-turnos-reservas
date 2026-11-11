@@ -1,4 +1,7 @@
+# Levanta las dos bases y los dos servicios. Uso: docker compose up --build
+# Necesita el repo del catalogo como carpeta hermana: ../tp-catalogo-sincronizacion
 name: turnos
+
 services:
   postgresql:
     image: postgres:17-alpine
@@ -15,5 +18,56 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+
+  catalogo-db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: catalogo
+      POSTGRES_USER: ${CATALOGO_DB_USERNAME:-catalogo}
+      POSTGRES_PASSWORD: ${CATALOGO_DB_PASSWORD:-catalogo}
+    ports:
+      - 127.0.0.1:5434:5432
+    volumes:
+      - catalogo-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d catalogo']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  catalogo:
+    build:
+      context: ../tp-catalogo-sincronizacion
+      dockerfile: ../tp-turnos-reservas/Dockerfile
+    env_file:
+      - ../tp-catalogo-sincronizacion/.env
+    environment:
+      DB_URL: jdbc:postgresql://catalogo-db:5432/catalogo
+      DB_USERNAME: ${CATALOGO_DB_USERNAME:-catalogo}
+      DB_PASSWORD: ${CATALOGO_DB_PASSWORD:-catalogo}
+    depends_on:
+      catalogo-db:
+        condition: service_healthy
+    ports:
+      - 8081:8081
+
+  turnos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      DB_URL: jdbc:postgresql://postgresql:5432/turnos
+      CATALOG_URL: http://catalogo:8081
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      catalogo:
+        condition: service_started
+    ports:
+      - 8082:8082
+
 volumes:
   turnos-db:
+  catalogo-db:
