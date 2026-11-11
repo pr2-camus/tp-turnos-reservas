@@ -6,6 +6,7 @@ import ar.edu.um.prog2.camus.turnos.reservation.domain.model.HoldConfirmation;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.model.HoldCreated;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.ports.out.HoldClient;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -67,6 +68,21 @@ public class CatedraHoldRestAdapter implements HoldClient {
         }
     }
 
+    @Override
+    public void cancelReservation(String reservationProcessId, String reason) {
+        try {
+            restClient
+                .post()
+                .uri("/api/appointments/{reservationProcessId}/cancel", reservationProcessId)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(new CancelRequest(reason))
+                .retrieve()
+                .toBodilessEntity();
+        } catch (RestClientException e) {
+            throw translate(e);
+        }
+    }
+
     private BusinessException emptyResponse() {
         return new BusinessException("CATEDRA_BAD_RESPONSE", ErrorKind.UNAVAILABLE, "La catedra respondio sin contenido.");
     }
@@ -103,6 +119,9 @@ public class CatedraHoldRestAdapter implements HoldClient {
     public record HoldRequest(long professionalId, String date, String startTime, String externalPatientId) {}
 
     public record ConfirmRequest(String externalPatientId, String patientFirstName, String patientLastName) {}
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public record CancelRequest(String reason) {}
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     record HoldResponse(String holdId, String reservationProcessId, String expiresAt) {}

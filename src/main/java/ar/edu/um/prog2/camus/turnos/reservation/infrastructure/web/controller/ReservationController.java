@@ -2,11 +2,13 @@ package ar.edu.um.prog2.camus.turnos.reservation.infrastructure.web.controller;
 
 import ar.edu.um.prog2.camus.turnos.reservation.application.service.ReservationService;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.model.ReservationProcess;
+import ar.edu.um.prog2.camus.turnos.reservation.infrastructure.web.dto.CancelReservationRequest;
 import ar.edu.um.prog2.camus.turnos.reservation.infrastructure.web.dto.ReservationProcessResponse;
 import ar.edu.um.prog2.camus.turnos.reservation.infrastructure.web.dto.StartReservationRequest;
 import ar.edu.um.prog2.camus.turnos.reservation.infrastructure.web.dto.SubmitPhoneRequest;
 import ar.edu.um.prog2.camus.turnos.reservation.infrastructure.web.mapper.ReservationDtoMapper;
 import jakarta.validation.Valid;
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,8 +42,22 @@ public class ReservationController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(mapper.toResponse(process));
     }
 
+    @GetMapping
+    public List<ReservationProcessResponse> listMine() {
+        return reservationService.listMyReservations().stream().map(mapper::toResponse).toList();
+    }
+
     @GetMapping("/{id}")
     public ReservationProcessResponse get(@PathVariable String id) {
         return mapper.toResponse(reservationService.getReservation(id));
+    }
+
+    @PostMapping("/{id}/cancel")
+    public ReservationProcessResponse cancel(
+        @PathVariable String id,
+        @Valid @RequestBody(required = false) CancelReservationRequest request
+    ) {
+        String reason = request == null ? null : request.reason();
+        return mapper.toResponse(reservationService.cancelReservation(id, reason));
     }
 }

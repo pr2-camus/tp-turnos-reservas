@@ -11,4 +11,7 @@ public interface HoldClient {
 
     /** Confirma inicialmente el hold; la catedra pedira el telefono por Kafka. */
     HoldConfirmation confirmHold(String holdId, String externalPatientId, String firstName, String lastName);
+
+    /** Cancela una reserva confirmada en la catedra. Cancelar una ya cancelada no falla. */
+    void cancelReservation(String reservationProcessId, String reason);
 }
