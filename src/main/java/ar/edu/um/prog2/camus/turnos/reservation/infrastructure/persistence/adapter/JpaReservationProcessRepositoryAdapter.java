@@ -1,9 +1,11 @@
 package ar.edu.um.prog2.camus.turnos.reservation.infrastructure.persistence.adapter;
 
 import ar.edu.um.prog2.camus.turnos.reservation.domain.model.ReservationProcess;
+import ar.edu.um.prog2.camus.turnos.reservation.domain.model.ReservationStatus;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.ports.out.ReservationProcessRepository;
 import ar.edu.um.prog2.camus.turnos.reservation.infrastructure.persistence.mapper.ReservationProcessMapper;
 import ar.edu.um.prog2.camus.turnos.reservation.infrastructure.persistence.repository.JpaReservationProcessRepository;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Component;
@@ -32,5 +34,10 @@ public class JpaReservationProcessRepositoryAdapter implements ReservationProces
     @Override
     public List<ReservationProcess> findAllByUserId(Long userId) {
         return jpaRepository.findByUserId(userId).stream().map(mapper::toDomain).toList();
+    }
+
+    @Override
+    public List<ReservationProcess> findAllByStatusIn(Collection<ReservationStatus> statuses) {
+        return jpaRepository.findByStatusIn(statuses).stream().map(mapper::toDomain).toList();
     }
 }
