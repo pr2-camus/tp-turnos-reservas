@@ -14,6 +14,10 @@
 # ===================================================================
 
 spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: test-group
   application:
     name: turnos
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
