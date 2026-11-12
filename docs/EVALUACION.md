@@ -3,7 +3,7 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (UM): RepoSense + análisis de calidad de **7 dimensiones**. **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas) + build: es una criba para orientar la revisión, **no una nota**. La **documentación** del repositorio no se evalúa.
-> Generado: 2026-11-11.
+> Generado: 2026-11-12.
 
 ## 1. Veredicto
 
@@ -12,15 +12,15 @@
 | Índice de calidad | **51/100** |
 | Tipo de repositorio | `backend` |
 | Build (`mvnw verify` / `gradlew check`) | OK |
-| Código (LOC) | 9,247 |
-| Archivos de código | 202 |
-| Clases | 176 |
+| Código (LOC) | 9,569 |
+| Archivos de código | 209 |
+| Clases | 184 |
 | Código dentro de clases (%POO) | 79% |
 | Funciones fuera de clases | 0 |
-| Duplicación (puerta) | 10.7% |
-| Duplicación lógica | 11.4% |
-| Duplicación de boilerplate | 1.7% |
-| Cobertura | 57% |
+| Duplicación (puerta) | 10.3% |
+| Duplicación lógica | 11.0% |
+| Duplicación de boilerplate | 3.1% |
+| Cobertura | 56% |
 | Tope duro aplicado a D1 | `POO_BAJO` → D1 ≤ 60 |
 
 > Este informe **describe** lo que el análisis midió con los criterios ya establecidos de la materia. No es una nota.
@@ -52,19 +52,19 @@ Cada dimensión indica **qué mide**, **por qué importa** y **tu resultado**. C
 
 | Dimensión | Peso | Puntaje |
 |:--|--:|--:|
-| **D1** Diseño OO, SOLID y patrones (20%) | 20% | 2 |
+| **D1** Diseño OO, SOLID y patrones (20%) | 20% | 1 |
 | **D2** Arquitectura hexagonal — backend (15%) | 15% | 0 |
 | **D3** Frontend KMP: MVVM y buenas prácticas (10%) | 10% | N/A |
 | **D4** Integración y contrato (10%) | 10% | 90 |
 | **D5** Seguridad y robustez (10%) | 10% | 100 |
-| **D6** Pruebas y cobertura (20%) | 20% | 82 |
+| **D6** Pruebas y cobertura (20%) | 20% | 80 |
 | **D7** Proceso y entrega (15%) | 15% | 69 |
 
 ### D1. Diseño OO, SOLID y patrones (20%)
 
 - **Qué mide:** Métricas orientadas a objetos (clases, métodos, campos, cohesión, acoplamiento, herencia) y proxies de SOLID, más patrones de diseño.
 - **Por qué importa:** El eje de la materia es el buen uso de la POO y su arquitectura: un diseño con clases claras y poco acopladas es más fácil de entender, probar y cambiar.
-- **Tu resultado:** **2/100**
+- **Tu resultado:** **1/100**
 - **Para investigar la causa:**
     - ¿Se pensó el modelo de clases antes de codificar o se agrupó después?
     - ¿Qué clases concentran muchas responsabilidades a la vez?
@@ -96,7 +96,7 @@ Cada dimensión indica **qué mide**, **por qué importa** y **tu resultado**. C
 
 - **Qué mide:** Cantidad y resultado de pruebas y cobertura de línea (JaCoCo/Kover, Surefire/Failsafe) cuando hay build.
 - **Por qué importa:** Las pruebas son la red de seguridad para refactorizar e integrar; la cobertura acota las zonas sin verificar.
-- **Tu resultado:** **82/100**
+- **Tu resultado:** **80/100**
 
 ### D7. Proceso y entrega (15%)
 
@@ -108,7 +108,7 @@ Cada dimensión indica **qué mide**, **por qué importa** y **tu resultado**. C
 
 El análisis encontró las siguientes señales (archivo, sin número de línea a propósito):
 
-**SRP/responsabilidad** (89)
+**SRP/responsabilidad** (90)
 - clase 'TurnosApp' grande (LOC=80, métodos=10, campos=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java`
 - método 'TurnosApp.logApplicationStartup' de 35 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java`
 - clase 'DomainUserDetailsService' con baja cohesión (6%) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java`
@@ -120,7 +120,8 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - clase 'KafkaPhoneSubmissionPublisher' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisher.java`
 - clase 'ReservationActionsListener' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java`
 - método 'ReservationActionsListener.toType' con complejidad 8 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java`
-- clase 'CatedraHoldRestAdapter' grande (LOC=80, métodos=16, campos=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
+- clase 'CatedraHoldRestAdapter' grande (LOC=96, métodos=18, campos=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
+- clase 'ReservationService' con baja cohesión (7%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java`
 - método 'StartReservationUseCaseImpl.startReservation' de 34 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
 - método 'StartReservationUseCaseImpl.startReservation' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
 - método 'ProcessReservationEventUseCaseImpl.process' con complejidad 9 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImpl.java`
@@ -173,9 +174,9 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - método 'LoggingAspectTest.setup' con complejidad 6 — `src/test/java/ar/edu/um/prog2/camus/turnos/aop/logging/LoggingAspectTest.java`
 - clase 'SubmitPhoneUseCaseImplTest' grande (LOC=84, métodos=10, campos=3) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImplTest.java`
 - clase 'StartReservationUseCaseImplTest' grande (LOC=66, métodos=7, campos=8) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImplTest.java`
-- clase 'ProcessReservationEventUseCaseImplTest' grande (LOC=102, métodos=15, campos=3) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
+- clase 'ProcessReservationEventUseCaseImplTest' grande (LOC=108, métodos=15, campos=3) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
 - clase 'ProcessReservationEventUseCaseImplTest' con baja cohesión (10%) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
-- método 'ProcessReservationEventUseCaseImplTest.processIn' con complejidad 6 — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
+- método 'ProcessReservationEventUseCaseImplTest.processIn' con complejidad 7 — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
 - clase 'DateTimeWrapper' grande (LOC=96, métodos=19, campos=9) — `src/test/java/ar/edu/um/prog2/camus/turnos/repository/timezone/DateTimeWrapper.java`
 - clase 'DateTimeWrapper' con baja cohesión (11%) — `src/test/java/ar/edu/um/prog2/camus/turnos/repository/timezone/DateTimeWrapper.java`
 - clase 'MailServiceIT' grande (LOC=177, métodos=12, campos=7) — `src/test/java/ar/edu/um/prog2/camus/turnos/service/MailServiceIT.java`
@@ -199,7 +200,7 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - método 'NumberMatcher.asDecimal' con complejidad 7 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/TestUtil.java`
 - clase 'ExceptionTranslatorTestController' grande (LOC=47, métodos=10, campos=1) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslatorTestController.java`
 
-**DIP/concretos** (98)
+**DIP/concretos** (104)
 - clase 'TurnosApp' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java`
 - clase 'DomainUserDetailsService' muy acoplada (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java`
 - clase 'DomainUserDetailsService' instancia 5 concretos (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java`
@@ -208,16 +209,18 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - clase 'ReservationProcessEntity' muy acoplada (CBO=9) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/persistence/entity/ReservationProcessEntity.java`
 - clase 'KafkaPhoneSubmissionPublisher' muy acoplada (CBO=22) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisher.java`
 - clase 'ReservationActionsListener' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java`
-- clase 'CatedraHoldRestAdapter' muy acoplada (CBO=27) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
-- clase 'CatedraHoldRestAdapter' instancia 7 concretos (CBO=27) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
+- clase 'CatedraHoldRestAdapter' muy acoplada (CBO=30) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
+- clase 'CatedraHoldRestAdapter' instancia 8 concretos (CBO=30) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
 - clase 'JhipsterCurrentUserAdapter' muy acoplada (CBO=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/user/JhipsterCurrentUserAdapter.java`
-- clase 'ReservationController' muy acoplada (CBO=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/web/controller/ReservationController.java`
-- clase 'ReservationService' muy acoplada (CBO=11) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java`
+- clase 'ReservationController' muy acoplada (CBO=11) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/web/controller/ReservationController.java`
+- clase 'ReservationService' muy acoplada (CBO=13) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java`
+- clase 'CancelReservationUseCaseImpl' muy acoplada (CBO=21) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/CancelReservationUseCaseImpl.java`
 - clase 'StartReservationUseCaseImpl' muy acoplada (CBO=28) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
 - clase 'StartReservationUseCaseImpl' instancia 3 concretos (CBO=28) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
 - clase 'ProcessReservationEventUseCaseImpl' muy acoplada (CBO=20) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImpl.java`
 - clase 'SubmitPhoneUseCaseImpl' muy acoplada (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
 - clase 'SubmitPhoneUseCaseImpl' instancia 5 concretos (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
+- clase 'HoldClient' muy acoplada (CBO=9) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/ports/out/HoldClient.java`
 - clase 'ReservationProcess' muy acoplada (CBO=13) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java`
 - clase 'ReservationStatus' muy acoplada (CBO=11) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationStatus.java`
 - clase 'CatedraOccupancyRestAdapter' muy acoplada (CBO=18) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatedraOccupancyRestAdapter.java`
@@ -265,13 +268,17 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - clase 'KafkaPhoneSubmissionPublisherTest' muy acoplada (CBO=11) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisherTest.java`
 - clase 'KafkaPhoneSubmissionPublisherTest' instancia 5 concretos (CBO=11) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisherTest.java`
 - clase 'CatedraHoldRestAdapterTest' muy acoplada (CBO=29) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapterTest.java`
+- clase 'CancelReservationUseCaseImplTest' muy acoplada (CBO=22) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/CancelReservationUseCaseImplTest.java`
+- clase 'CancelReservationUseCaseImplTest' instancia 3 concretos (CBO=22) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/CancelReservationUseCaseImplTest.java`
 - clase 'SubmitPhoneUseCaseImplTest' muy acoplada (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImplTest.java`
 - clase 'SubmitPhoneUseCaseImplTest' instancia 3 concretos (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImplTest.java`
 - clase 'StartReservationUseCaseImplTest' muy acoplada (CBO=28) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImplTest.java`
 - clase 'StartReservationUseCaseImplTest' instancia 7 concretos (CBO=28) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImplTest.java`
 - clase 'GetReservationUseCaseImplTest' muy acoplada (CBO=12) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/GetReservationUseCaseImplTest.java`
-- clase 'ProcessReservationEventUseCaseImplTest' muy acoplada (CBO=19) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
-- clase 'ProcessReservationEventUseCaseImplTest' instancia 3 concretos (CBO=19) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
+- clase 'ProcessReservationEventUseCaseImplTest' muy acoplada (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
+- clase 'ProcessReservationEventUseCaseImplTest' instancia 3 concretos (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
+- clase 'ListMyReservationsUseCaseImplTest' muy acoplada (CBO=14) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ListMyReservationsUseCaseImplTest.java`
+- clase 'ListMyReservationsUseCaseImplTest' instancia 3 concretos (CBO=14) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ListMyReservationsUseCaseImplTest.java`
 - clase 'ReservationProcessTest' muy acoplada (CBO=14) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcessTest.java`
 - clase 'DateTimeWrapper' muy acoplada (CBO=11) — `src/test/java/ar/edu/um/prog2/camus/turnos/repository/timezone/DateTimeWrapper.java`
 - clase 'CatedraOccupancyRestAdapterTest' muy acoplada (CBO=15) — `src/test/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatedraOccupancyRestAdapterTest.java`
@@ -319,7 +326,7 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - clase 'EmailAlreadyUsedException' con herencia profunda (DIT=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/EmailAlreadyUsedException.java`
 
 **duplicación** (6)
-- duplicación lógica: 10.7% · boilerplate: 1.7%
+- duplicación lógica: 10.3% · boilerplate: 3.1%
 - bloque de 8 líneas repetido 4 veces en src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:63, src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:64, src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:65 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java`
 - bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:413, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:452, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:490 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
 - bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:415, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:454, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:492 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
