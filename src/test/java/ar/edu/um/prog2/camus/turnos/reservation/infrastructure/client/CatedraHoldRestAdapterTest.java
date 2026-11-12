@@ -122,4 +122,41 @@ class CatedraHoldRestAdapterTest {
             adapter.createHold(201L, LocalDate.of(2026, 11, 9), LocalTime.of(12, 30), "user-42")
         ).isInstanceOfSatisfying(BusinessException.class, e -> assertThat(e.getKind()).isEqualTo(ErrorKind.UNAVAILABLE));
     }
+
+    @Test
+    void cancelaLaReservaEnviandoElMotivo() {
+        server
+            .expect(requestTo(containsString("/api/appointments/process-1/cancel")))
+            .andExpect(method(HttpMethod.POST))
+            .andExpect(content().string(containsString("no puedo asistir")))
+            .andRespond(withSuccess());
+
+        adapter.cancelReservation("process-1", "no puedo asistir");
+
+        server.verify();
+    }
+
+    @Test
+    void traduceUnaReservaInexistenteAlCancelarANoEncontrado() {
+        server
+            .expect(requestTo(containsString("/api/appointments/process-9/cancel")))
+            .andRespond(
+                withStatus(HttpStatus.NOT_FOUND)
+                    .contentType(MediaType.APPLICATION_PROBLEM_JSON)
+                    .body("{\"status\":404,\"detail\":\"No existe\",\"code\":\"RESERVATION_NOT_FOUND\"}")
+            );
+
+        assertThatThrownBy(() -> adapter.cancelReservation("process-9", null)).isInstanceOfSatisfying(BusinessException.class, e ->
+            assertThat(e.getKind()).isEqualTo(ErrorKind.NOT_FOUND)
+        );
+    }
+
+    @Test
+    void siLaCatedraFallaAlCancelarDevuelveErrorDeDisponibilidad() {
+        server.expect(requestTo(containsString("/api/appointments/process-1/cancel"))).andRespond(withServerError());
+
+        assertThatThrownBy(() -> adapter.cancelReservation("process-1", "x")).isInstanceOfSatisfying(BusinessException.class, e ->
+            assertThat(e.getKind()).isEqualTo(ErrorKind.UNAVAILABLE)
+        );
+    }
 }
