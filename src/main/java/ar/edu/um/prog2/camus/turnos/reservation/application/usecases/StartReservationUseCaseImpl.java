@@ -40,6 +40,13 @@ public class StartReservationUseCaseImpl implements StartReservationUseCase {
     @Override
     public ReservationProcess startReservation(long professionalId, LocalDate date, LocalTime startTime) {
         ReservationUser user = currentUserProvider.getCurrentUser();
+        if (isBlank(user.firstName()) || isBlank(user.lastName())) {
+            throw new BusinessException(
+                "PATIENT_NAME_REQUIRED",
+                ErrorKind.VALIDATION,
+                "Para reservar hace falta tener nombre y apellido cargados en el perfil."
+            );
+        }
 
         List<Slot> free = getAvailabilityUseCase
             .getAvailability(professionalId, date)
@@ -75,5 +82,9 @@ public class StartReservationUseCaseImpl implements StartReservationUseCase {
             return repository.save(current);
         }
         return current;
+    }
+
+    private static boolean isBlank(String value) {
+        return value == null || value.isBlank();
     }
 }
