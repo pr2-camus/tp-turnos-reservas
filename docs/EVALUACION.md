@@ -3,24 +3,24 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (UM): RepoSense + análisis de calidad de **7 dimensiones**. **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas) + build: es una criba para orientar la revisión, **no una nota**. La **documentación** del repositorio no se evalúa.
-> Generado: 2026-11-12.
+> Generado: 2026-11-17.
 
 ## 1. Veredicto
 
 | Aspecto | Resultado |
 |---|---|
-| Índice de calidad | **51/100** |
+| Índice de calidad | **58/100** |
 | Tipo de repositorio | `backend` |
 | Build (`mvnw verify` / `gradlew check`) | OK |
-| Código (LOC) | 9,569 |
-| Archivos de código | 209 |
-| Clases | 184 |
-| Código dentro de clases (%POO) | 79% |
+| Código (LOC) | 10,662 |
+| Archivos de código | 228 |
+| Clases | 202 |
+| Código dentro de clases (%POO) | 75% |
 | Funciones fuera de clases | 0 |
-| Duplicación (puerta) | 10.3% |
-| Duplicación lógica | 11.0% |
-| Duplicación de boilerplate | 3.1% |
-| Cobertura | 56% |
+| Duplicación (puerta) | 9.2% |
+| Duplicación lógica | 9.8% |
+| Duplicación de boilerplate | 3.3% |
+| Cobertura | 63% |
 | Tope duro aplicado a D1 | `POO_BAJO` → D1 ≤ 60 |
 
 > Este informe **describe** lo que el análisis midió con los criterios ya establecidos de la materia. No es una nota.
@@ -42,7 +42,7 @@ Criterios de la cátedra (`CRITERIOS-CALIDAD.md`): **Aprobar** se juega con el p
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
 |---|---:|---:|---:|---:|---:|---:|
-| zoecamus | 1 | 0 | 0 | 0 | 8 | 0% |
+| zoecamus | 1 | 0 | 0 | 0 | 10 | 0% |
 
 > _El LOC de autoría lo calcula RepoSense sobre el historial y puede diferir del LOC de código del análisis (que mira el estado de `main`)._
 
@@ -52,19 +52,19 @@ Cada dimensión indica **qué mide**, **por qué importa** y **tu resultado**. C
 
 | Dimensión | Peso | Puntaje |
 |:--|--:|--:|
-| **D1** Diseño OO, SOLID y patrones (20%) | 20% | 1 |
+| **D1** Diseño OO, SOLID y patrones (20%) | 20% | 2 |
 | **D2** Arquitectura hexagonal — backend (15%) | 15% | 0 |
 | **D3** Frontend KMP: MVVM y buenas prácticas (10%) | 10% | N/A |
 | **D4** Integración y contrato (10%) | 10% | 90 |
 | **D5** Seguridad y robustez (10%) | 10% | 100 |
-| **D6** Pruebas y cobertura (20%) | 20% | 80 |
-| **D7** Proceso y entrega (15%) | 15% | 69 |
+| **D6** Pruebas y cobertura (20%) | 20% | 91 |
+| **D7** Proceso y entrega (15%) | 15% | 100 |
 
 ### D1. Diseño OO, SOLID y patrones (20%)
 
 - **Qué mide:** Métricas orientadas a objetos (clases, métodos, campos, cohesión, acoplamiento, herencia) y proxies de SOLID, más patrones de diseño.
 - **Por qué importa:** El eje de la materia es el buen uso de la POO y su arquitectura: un diseño con clases claras y poco acopladas es más fácil de entender, probar y cambiar.
-- **Tu resultado:** **1/100**
+- **Tu resultado:** **2/100**
 - **Para investigar la causa:**
     - ¿Se pensó el modelo de clases antes de codificar o se agrupó después?
     - ¿Qué clases concentran muchas responsabilidades a la vez?
@@ -96,19 +96,19 @@ Cada dimensión indica **qué mide**, **por qué importa** y **tu resultado**. C
 
 - **Qué mide:** Cantidad y resultado de pruebas y cobertura de línea (JaCoCo/Kover, Surefire/Failsafe) cuando hay build.
 - **Por qué importa:** Las pruebas son la red de seguridad para refactorizar e integrar; la cobertura acota las zonas sin verificar.
-- **Tu resultado:** **80/100**
+- **Tu resultado:** **91/100**
 
 ### D7. Proceso y entrega (15%)
 
 - **Qué mide:** Artefactos verificables de proceso/entrega: `compose`, `.env.example`, CI (`.github/workflows/`), `CODEOWNERS` y wrapper de build (`mvnw`/`gradlew`). **No** puntúa documentación.
 - **Por qué importa:** Un proyecto que compila, se levanta y se valida solo es más fácil de revisar y de integrar en equipo.
-- **Tu resultado:** **69/100**
+- **Tu resultado:** **100/100**
 
 ## 5. Señales detectadas
 
 El análisis encontró las siguientes señales (archivo, sin número de línea a propósito):
 
-**SRP/responsabilidad** (90)
+**SRP/responsabilidad** (65)
 - clase 'TurnosApp' grande (LOC=80, métodos=10, campos=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java`
 - método 'TurnosApp.logApplicationStartup' de 35 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java`
 - clase 'DomainUserDetailsService' con baja cohesión (6%) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java`
@@ -120,10 +120,16 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - clase 'KafkaPhoneSubmissionPublisher' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisher.java`
 - clase 'ReservationActionsListener' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java`
 - método 'ReservationActionsListener.toType' con complejidad 8 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java`
+- clase 'CatedraReservationsRestAdapter' con baja cohesión (33%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraReservationsRestAdapter.java`
+- método 'CatedraReservationsRestAdapter.listReservations' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraReservationsRestAdapter.java`
 - clase 'CatedraHoldRestAdapter' grande (LOC=96, métodos=18, campos=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
 - clase 'ReservationService' con baja cohesión (7%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java`
-- método 'StartReservationUseCaseImpl.startReservation' de 34 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
-- método 'StartReservationUseCaseImpl.startReservation' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
+- método 'RecoverPendingReservationsUseCaseImpl.recover' de 33 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java`
+- método 'RecoverPendingReservationsUseCaseImpl.recover' con complejidad 8 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java`
+- método 'RecoverPendingReservationsUseCaseImpl.reconcile' con complejidad 9 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java`
+- clase 'StartReservationUseCaseImpl' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
+- método 'StartReservationUseCaseImpl.startReservation' de 41 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
+- método 'StartReservationUseCaseImpl.startReservation' con complejidad 7 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
 - método 'ProcessReservationEventUseCaseImpl.process' con complejidad 9 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImpl.java`
 - clase 'SubmitPhoneUseCaseImpl' con baja cohesión (0%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
 - método 'SubmitPhoneUseCaseImpl.submitPhone' de 44 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
@@ -149,6 +155,7 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - clase 'SecurityMetersService' grande (LOC=35, métodos=7, campos=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/management/SecurityMetersService.java`
 - clase 'SecurityMetersService' con baja cohesión (33%) — `src/main/java/ar/edu/um/prog2/camus/turnos/management/SecurityMetersService.java`
 - método 'SecurityConfiguration.filterChain' de 30 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/config/SecurityConfiguration.java`
+- método 'Retry.withBackoff' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/retry/Retry.java`
 - clase 'Authority' grande (LOC=64, métodos=10, campos=3) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
 - clase 'Authority' con baja cohesión (24%) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
 - clase 'AbstractAuditingEntity' con baja cohesión (14%) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
@@ -167,56 +174,27 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - método 'ExceptionTranslator.resolveCode' con complejidad 13 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
 - clase 'ManagedUserVM' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/vm/ManagedUserVM.java`
 - clase 'LoginVM' con baja cohesión (33%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/vm/LoginVM.java`
-- clase 'DomainUserDetailsServiceIT' grande (LOC=96, métodos=11, campos=9) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsServiceIT.java`
-- clase 'SecurityUtilsUnitTest' grande (LOC=102, métodos=11, campos=0) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtilsUnitTest.java`
-- clase 'JwtAuthenticationTestUtils' grande (LOC=57, métodos=10, campos=1) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/jwt/JwtAuthenticationTestUtils.java`
-- clase 'TokenAuthenticationSecurityMetersIT' con baja cohesión (48%) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/jwt/TokenAuthenticationSecurityMetersIT.java`
-- método 'LoggingAspectTest.setup' con complejidad 6 — `src/test/java/ar/edu/um/prog2/camus/turnos/aop/logging/LoggingAspectTest.java`
-- clase 'SubmitPhoneUseCaseImplTest' grande (LOC=84, métodos=10, campos=3) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImplTest.java`
-- clase 'StartReservationUseCaseImplTest' grande (LOC=66, métodos=7, campos=8) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImplTest.java`
-- clase 'ProcessReservationEventUseCaseImplTest' grande (LOC=108, métodos=15, campos=3) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
-- clase 'ProcessReservationEventUseCaseImplTest' con baja cohesión (10%) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
-- método 'ProcessReservationEventUseCaseImplTest.processIn' con complejidad 7 — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
-- clase 'DateTimeWrapper' grande (LOC=96, métodos=19, campos=9) — `src/test/java/ar/edu/um/prog2/camus/turnos/repository/timezone/DateTimeWrapper.java`
-- clase 'DateTimeWrapper' con baja cohesión (11%) — `src/test/java/ar/edu/um/prog2/camus/turnos/repository/timezone/DateTimeWrapper.java`
-- clase 'MailServiceIT' grande (LOC=177, métodos=12, campos=7) — `src/test/java/ar/edu/um/prog2/camus/turnos/service/MailServiceIT.java`
-- clase 'UserServiceIT' grande (LOC=135, métodos=9, campos=12) — `src/test/java/ar/edu/um/prog2/camus/turnos/service/UserServiceIT.java`
-- clase 'UserMapperTest' grande (LOC=129, métodos=11, campos=5) — `src/test/java/ar/edu/um/prog2/camus/turnos/service/mapper/UserMapperTest.java`
-- clase 'HibernateTimeZoneIT' grande (LOC=114, métodos=10, campos=8) — `src/test/java/ar/edu/um/prog2/camus/turnos/config/timezone/HibernateTimeZoneIT.java`
-- clase 'AuthorityResourceIT' grande (LOC=142, métodos=17, campos=8) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthorityResourceIT.java`
-- clase 'AuthorityResourceIT' con baja cohesión (29%) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthorityResourceIT.java`
-- clase 'UserResourceIT' grande (LOC=385, métodos=20, campos=21) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResourceIT.java`
-- método 'UserResourceIT.updateUser' de 38 líneas — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResourceIT.java`
-- método 'UserResourceIT.updateUserLogin' de 39 líneas — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResourceIT.java`
-- método 'UserResourceIT.updateUserExistingEmail' de 33 líneas — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResourceIT.java`
-- método 'UserResourceIT.updateUserExistingLogin' de 33 líneas — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResourceIT.java`
-- clase 'AccountResourceIT' grande (LOC=636, métodos=33, campos=8) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- método 'AccountResourceIT.testRegisterDuplicateLogin' de 36 líneas — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- método 'AccountResourceIT.testRegisterDuplicateEmail' de 49 líneas — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- método 'AccountResourceIT.testSaveAccount' de 30 líneas — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- método 'AccountResourceIT.testSaveExistingEmail' de 30 líneas — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- clase 'TestUtil' grande (LOC=145, métodos=15, campos=2) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/TestUtil.java`
-- método 'TestUtil.asDecimal' con complejidad 7 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/TestUtil.java`
-- método 'NumberMatcher.asDecimal' con complejidad 7 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/TestUtil.java`
-- clase 'ExceptionTranslatorTestController' grande (LOC=47, métodos=10, campos=1) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslatorTestController.java`
 
-**DIP/concretos** (104)
+**DIP/concretos** (57)
 - clase 'TurnosApp' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java`
 - clase 'DomainUserDetailsService' muy acoplada (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java`
 - clase 'DomainUserDetailsService' instancia 5 concretos (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java`
 - clase 'SecurityUtils' muy acoplada (CBO=17) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java`
 - clase 'LoggingAspect' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/aop/logging/LoggingAspect.java`
+- clase 'ReservationRecoveryScheduler' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/scheduling/ReservationRecoveryScheduler.java`
 - clase 'ReservationProcessEntity' muy acoplada (CBO=9) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/persistence/entity/ReservationProcessEntity.java`
 - clase 'KafkaPhoneSubmissionPublisher' muy acoplada (CBO=22) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisher.java`
 - clase 'ReservationActionsListener' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java`
+- clase 'CatedraReservationsRestAdapter' muy acoplada (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraReservationsRestAdapter.java`
 - clase 'CatedraHoldRestAdapter' muy acoplada (CBO=30) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
 - clase 'CatedraHoldRestAdapter' instancia 8 concretos (CBO=30) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
 - clase 'JhipsterCurrentUserAdapter' muy acoplada (CBO=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/user/JhipsterCurrentUserAdapter.java`
 - clase 'ReservationController' muy acoplada (CBO=11) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/web/controller/ReservationController.java`
 - clase 'ReservationService' muy acoplada (CBO=13) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java`
+- clase 'RecoverPendingReservationsUseCaseImpl' muy acoplada (CBO=31) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java`
 - clase 'CancelReservationUseCaseImpl' muy acoplada (CBO=21) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/CancelReservationUseCaseImpl.java`
-- clase 'StartReservationUseCaseImpl' muy acoplada (CBO=28) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
-- clase 'StartReservationUseCaseImpl' instancia 3 concretos (CBO=28) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
+- clase 'StartReservationUseCaseImpl' muy acoplada (CBO=31) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
+- clase 'StartReservationUseCaseImpl' instancia 4 concretos (CBO=31) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
 - clase 'ProcessReservationEventUseCaseImpl' muy acoplada (CBO=20) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImpl.java`
 - clase 'SubmitPhoneUseCaseImpl' muy acoplada (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
 - clase 'SubmitPhoneUseCaseImpl' instancia 5 concretos (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
@@ -242,6 +220,7 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - clase 'AsyncConfiguration' muy acoplada (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/AsyncConfiguration.java`
 - clase 'AsyncConfiguration' instancia 3 concretos (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/AsyncConfiguration.java`
 - clase 'RestClientsConfig' muy acoplada (CBO=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/config/RestClientsConfig.java`
+- clase 'Retry' muy acoplada (CBO=14) — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/retry/Retry.java`
 - clase 'User' muy acoplada (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
 - clase 'AuthorityResource' muy acoplada (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthorityResource.java`
 - clase 'AuthenticateController' muy acoplada (CBO=33) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java`
@@ -254,79 +233,27 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 - clase 'BadRequestAlertException' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/BadRequestAlertException.java`
 - clase 'ExceptionTranslator' muy acoplada (CBO=79) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
 - clase 'ExceptionTranslator' instancia 4 concretos (CBO=79) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
-- clase 'TechnicalStructureTest' muy acoplada (CBO=12) — `src/test/java/ar/edu/um/prog2/camus/turnos/TechnicalStructureTest.java`
-- clase 'DomainUserDetailsServiceIT' muy acoplada (CBO=9) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsServiceIT.java`
-- clase 'DomainUserDetailsServiceIT' instancia 3 concretos (CBO=9) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsServiceIT.java`
-- clase 'SecurityUtilsUnitTest' muy acoplada (CBO=14) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtilsUnitTest.java`
-- clase 'SecurityUtilsUnitTest' instancia 15 concretos (CBO=14) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtilsUnitTest.java`
-- clase 'JwtAuthenticationTestUtils' muy acoplada (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/jwt/JwtAuthenticationTestUtils.java`
-- clase 'JwtAuthenticationTestUtils' instancia 4 concretos (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/security/jwt/JwtAuthenticationTestUtils.java`
-- clase 'LoggingAspectTest' muy acoplada (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/aop/logging/LoggingAspectTest.java`
-- clase 'LoggingAspectTest' instancia 5 concretos (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/aop/logging/LoggingAspectTest.java`
-- clase 'ReservationActionsListenerTest' muy acoplada (CBO=10) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListenerTest.java`
-- clase 'ReservationActionsListenerTest' instancia 3 concretos (CBO=10) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListenerTest.java`
-- clase 'KafkaPhoneSubmissionPublisherTest' muy acoplada (CBO=11) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisherTest.java`
-- clase 'KafkaPhoneSubmissionPublisherTest' instancia 5 concretos (CBO=11) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisherTest.java`
-- clase 'CatedraHoldRestAdapterTest' muy acoplada (CBO=29) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapterTest.java`
-- clase 'CancelReservationUseCaseImplTest' muy acoplada (CBO=22) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/CancelReservationUseCaseImplTest.java`
-- clase 'CancelReservationUseCaseImplTest' instancia 3 concretos (CBO=22) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/CancelReservationUseCaseImplTest.java`
-- clase 'SubmitPhoneUseCaseImplTest' muy acoplada (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImplTest.java`
-- clase 'SubmitPhoneUseCaseImplTest' instancia 3 concretos (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImplTest.java`
-- clase 'StartReservationUseCaseImplTest' muy acoplada (CBO=28) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImplTest.java`
-- clase 'StartReservationUseCaseImplTest' instancia 7 concretos (CBO=28) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImplTest.java`
-- clase 'GetReservationUseCaseImplTest' muy acoplada (CBO=12) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/GetReservationUseCaseImplTest.java`
-- clase 'ProcessReservationEventUseCaseImplTest' muy acoplada (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
-- clase 'ProcessReservationEventUseCaseImplTest' instancia 3 concretos (CBO=20) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImplTest.java`
-- clase 'ListMyReservationsUseCaseImplTest' muy acoplada (CBO=14) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ListMyReservationsUseCaseImplTest.java`
-- clase 'ListMyReservationsUseCaseImplTest' instancia 3 concretos (CBO=14) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ListMyReservationsUseCaseImplTest.java`
-- clase 'ReservationProcessTest' muy acoplada (CBO=14) — `src/test/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcessTest.java`
-- clase 'DateTimeWrapper' muy acoplada (CBO=11) — `src/test/java/ar/edu/um/prog2/camus/turnos/repository/timezone/DateTimeWrapper.java`
-- clase 'CatedraOccupancyRestAdapterTest' muy acoplada (CBO=15) — `src/test/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatedraOccupancyRestAdapterTest.java`
-- clase 'GetAvailabilityUseCaseImplTest' muy acoplada (CBO=18) — `src/test/java/ar/edu/um/prog2/camus/turnos/availability/application/usecases/GetAvailabilityUseCaseImplTest.java`
-- clase 'GetAvailabilityUseCaseImplTest' instancia 7 concretos (CBO=18) — `src/test/java/ar/edu/um/prog2/camus/turnos/availability/application/usecases/GetAvailabilityUseCaseImplTest.java`
-- clase 'MailServiceIT' muy acoplada (CBO=26) — `src/test/java/ar/edu/um/prog2/camus/turnos/service/MailServiceIT.java`
-- clase 'MailServiceIT' instancia 10 concretos (CBO=26) — `src/test/java/ar/edu/um/prog2/camus/turnos/service/MailServiceIT.java`
-- clase 'UserServiceIT' muy acoplada (CBO=12) — `src/test/java/ar/edu/um/prog2/camus/turnos/service/UserServiceIT.java`
-- clase 'UserMapperTest' muy acoplada (CBO=10) — `src/test/java/ar/edu/um/prog2/camus/turnos/service/mapper/UserMapperTest.java`
-- clase 'UserMapperTest' instancia 4 concretos (CBO=10) — `src/test/java/ar/edu/um/prog2/camus/turnos/service/mapper/UserMapperTest.java`
-- clase 'CRLFLogConverterTest' muy acoplada (CBO=12) — `src/test/java/ar/edu/um/prog2/camus/turnos/config/CRLFLogConverterTest.java`
-- clase 'CRLFLogConverterTest' instancia 9 concretos (CBO=12) — `src/test/java/ar/edu/um/prog2/camus/turnos/config/CRLFLogConverterTest.java`
-- clase 'WebConfigurerTest' muy acoplada (CBO=25) — `src/test/java/ar/edu/um/prog2/camus/turnos/config/WebConfigurerTest.java`
-- clase 'WebConfigurerTest' instancia 8 concretos (CBO=25) — `src/test/java/ar/edu/um/prog2/camus/turnos/config/WebConfigurerTest.java`
-- clase 'HibernateTimeZoneIT' muy acoplada (CBO=24) — `src/test/java/ar/edu/um/prog2/camus/turnos/config/timezone/HibernateTimeZoneIT.java`
-- clase 'AuthorityResourceIT' muy acoplada (CBO=19) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthorityResourceIT.java`
-- clase 'UserResourceIT' muy acoplada (CBO=27) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResourceIT.java`
-- clase 'UserResourceIT' instancia 13 concretos (CBO=27) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResourceIT.java`
-- clase 'AccountResourceIT' muy acoplada (CBO=41) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- clase 'AccountResourceIT' instancia 38 concretos (CBO=41) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- clase 'PublicUserResourceIT' muy acoplada (CBO=10) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/PublicUserResourceIT.java`
-- clase 'AuthenticateControllerIT' muy acoplada (CBO=9) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateControllerIT.java`
-- clase 'AuthenticateControllerIT' instancia 5 concretos (CBO=9) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateControllerIT.java`
-- clase 'TestUtil' muy acoplada (CBO=25) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/TestUtil.java`
-- clase 'TestUtil' instancia 6 concretos (CBO=25) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/TestUtil.java`
-- clase 'ExceptionTranslatorIT' muy acoplada (CBO=11) — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslatorIT.java`
 
-**OCP/type-switch** (7)
+**OCP/type-switch** (8)
 - clase 'SecurityUtils' con 7 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java`
 - clase 'CatedraHoldRestAdapter' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
 - clase 'CatalogRestAdapter' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java`
+- clase 'Retry' con 2 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/retry/Retry.java`
 - clase 'Authority' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
 - clase 'User' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
 - clase 'AuthenticateController' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java`
 - clase 'ExceptionTranslator' con 29 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
 
-**POO** (4)
+**POO** (2)
 - clase 'SecurityMetersService' con 4 campos públicos (encapsulación) — `src/main/java/ar/edu/um/prog2/camus/turnos/management/SecurityMetersService.java`
 - clase 'ErrorConstants' con 8 campos públicos (encapsulación) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ErrorConstants.java`
-- clase 'AuthorityAsserts' solo con métodos estáticos (¿utilitaria?) — `src/test/java/ar/edu/um/prog2/camus/turnos/domain/AuthorityAsserts.java`
-- clase 'AuthorityTestSamples' solo con métodos estáticos (¿utilitaria?) — `src/test/java/ar/edu/um/prog2/camus/turnos/domain/AuthorityTestSamples.java`
 
 **?** (2)
 - clase 'LoginAlreadyUsedException' con herencia profunda (DIT=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/LoginAlreadyUsedException.java`
 - clase 'EmailAlreadyUsedException' con herencia profunda (DIT=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/EmailAlreadyUsedException.java`
 
 **duplicación** (6)
-- duplicación lógica: 10.3% · boilerplate: 3.1%
+- duplicación lógica: 9.2% · boilerplate: 3.3%
 - bloque de 8 líneas repetido 4 veces en src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:63, src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:64, src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:65 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java`
 - bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:413, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:452, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:490 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
 - bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:415, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:454, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:492 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
@@ -357,33 +284,39 @@ El análisis encontró las siguientes señales (archivo, sin número de línea a
 
 ## 6. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (15 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (21 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice de calidad a lo largo de los commits"
-    x-axis ["803b3b3", "a739600", "59b23c6", "149c677", "e0a17fe", "ab3d868", "423af86", "e31790e", "564ba12", "34de0d8", "b4637cc", "a3caa14", "0c95d60", "3aae4df", "70fab8f"]
+    x-axis ["803b3b3", "a739600", "59b23c6", "149c677", "e0a17fe", "ab3d868", "423af86", "e31790e", "564ba12", "34de0d8", "b4637cc", "a3caa14", "0c95d60", "3aae4df", "70fab8f", "93164dc", "97b9b8d", "415bb41", "2534bd9", "d33cfae", "7607936"]
     y-axis "Índice" 0 --> 100
-    line [0, 15, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44]
+    line [0, 15, 45, 45, 45, 45, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 49, 49, 49, 49]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
 |---|---|---|---|---:|---:|---:|---:|---:|
 | 1 | 2026-09-21 | `803b3b3` | zoecamus | 0 | 0 | 0% | 0.0% | 0 |
 | 2 | 2026-09-22 | `a739600` | Ing. Daniel Quinteros | 0 | 15 | 0% | 0.0% | 0 |
-| 3 | 2026-10-30 | `59b23c6` | zoecamus | 6,752 | 44 | 82% | 13.4% | 0 |
-| 4 | 2026-10-31 | `149c677` | zoecamus | 6,940 | 44 | 81% | 13.2% | 0 |
-| 5 | 2026-11-01 | `e0a17fe` | zoecamus | 6,937 | 44 | 81% | 13.2% | 0 |
-| 6 | 2026-11-02 | `ab3d868` | zoecamus | 6,947 | 44 | 81% | 13.2% | 0 |
-| 7 | 2026-11-02 | `423af86` | zoecamus | 7,225 | 44 | 80% | 12.7% | 0 |
-| 8 | 2026-11-03 | `e31790e` | zoecamus | 7,454 | 44 | 80% | 12.3% | 0 |
-| 9 | 2026-11-09 | `564ba12` | zoecamus | 7,643 | 44 | 80% | 11.9% | 0 |
-| 10 | 2026-11-09 | `34de0d8` | zoecamus | 8,345 | 44 | 80% | 11.6% | 0 |
-| 11 | 2026-11-09 | `b4637cc` | zoecamus | 8,731 | 44 | 80% | 11.3% | 0 |
-| 12 | 2026-11-11 | `a3caa14` | zoecamus | 9,247 | 44 | 79% | 10.7% | 0 |
-| 13 | 2026-11-11 | `0c95d60` | zoecamus | 9,247 | 44 | 79% | 10.7% | 0 |
-| 14 | 2026-11-11 | `3aae4df` | zoecamus | 9,255 | 44 | 79% | 10.7% | 0 |
-| 15 | 2026-11-11 | `70fab8f` | zoecamus | 9,569 | 44 | 79% | 10.3% | 0 |
+| 3 | 2026-10-30 | `59b23c6` | zoecamus | 6,752 | 45 | 78% | 13.4% | 0 |
+| 4 | 2026-10-31 | `149c677` | zoecamus | 6,940 | 45 | 76% | 13.2% | 0 |
+| 5 | 2026-11-01 | `e0a17fe` | zoecamus | 6,937 | 45 | 76% | 13.2% | 0 |
+| 6 | 2026-11-02 | `ab3d868` | zoecamus | 6,947 | 45 | 76% | 13.2% | 0 |
+| 7 | 2026-11-02 | `423af86` | zoecamus | 7,225 | 44 | 75% | 12.7% | 0 |
+| 8 | 2026-11-03 | `e31790e` | zoecamus | 7,454 | 44 | 75% | 12.3% | 0 |
+| 9 | 2026-11-09 | `564ba12` | zoecamus | 7,643 | 44 | 75% | 11.9% | 0 |
+| 10 | 2026-11-09 | `34de0d8` | zoecamus | 8,345 | 44 | 75% | 11.6% | 0 |
+| 11 | 2026-11-09 | `b4637cc` | zoecamus | 8,731 | 44 | 75% | 11.3% | 0 |
+| 12 | 2026-11-11 | `a3caa14` | zoecamus | 9,247 | 44 | 75% | 10.7% | 0 |
+| 13 | 2026-11-11 | `0c95d60` | zoecamus | 9,247 | 44 | 75% | 10.7% | 0 |
+| 14 | 2026-11-11 | `3aae4df` | zoecamus | 9,255 | 44 | 75% | 10.7% | 0 |
+| 15 | 2026-11-11 | `70fab8f` | zoecamus | 9,569 | 44 | 75% | 10.3% | 0 |
+| 16 | 2026-11-12 | `93164dc` | zoecamus | 10,110 | 44 | 75% | 9.7% | 0 |
+| 17 | 2026-11-12 | `97b9b8d` | zoecamus | 10,304 | 44 | 75% | 9.5% | 0 |
+| 18 | 2026-11-12 | `415bb41` | zoecamus | 10,304 | 49 | 75% | 9.5% | 0 |
+| 19 | 2026-11-12 | `2534bd9` | zoecamus | 10,304 | 49 | 75% | 9.5% | 0 |
+| 20 | 2026-11-12 | `d33cfae` | zoecamus | 10,601 | 49 | 75% | 9.3% | 0 |
+| 21 | 2026-11-14 | `7607936` | zoecamus | 10,662 | 49 | 75% | 9.2% | 0 |
 
 ---
 _Informe generado por la cátedra. Las dimensiones y umbrales corresponden a `calidad.py` (perfil `exigente`); el semáforo, a `CRITERIOS-CALIDAD.md`. La documentación del repositorio no se evalúa. Ante dudas, revisá el archivo señalado._
