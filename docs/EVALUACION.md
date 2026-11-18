@@ -3,7 +3,7 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (UM): RepoSense + análisis de calidad de **7 dimensiones**. **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas) + build: es una criba para orientar la revisión, **no una nota**. La **documentación** del repositorio no se evalúa.
-> Generado: 2026-11-17.
+> Generado: 2026-11-18.
 
 ## 1. Veredicto
 
@@ -106,181 +106,201 @@ Cada dimensión indica **qué mide**, **por qué importa** y **tu resultado**. C
 
 ## 5. Señales detectadas
 
-El análisis encontró las siguientes señales (archivo, sin número de línea a propósito):
+El análisis encontró las siguientes señales, con el archivo y la línea donde se originan cuando están disponibles:
 
-**SRP/responsabilidad** (65)
-- clase 'TurnosApp' grande (LOC=80, métodos=10, campos=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java`
-- método 'TurnosApp.logApplicationStartup' de 35 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java`
-- clase 'DomainUserDetailsService' con baja cohesión (6%) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java`
-- clase 'SecurityUtils' grande (LOC=97, métodos=12, campos=3) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java`
-- clase 'SecurityUtils' con baja cohesión (2%) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java`
-- clase 'LoggingAspect' grande (LOC=100, métodos=13, campos=1) — `src/main/java/ar/edu/um/prog2/camus/turnos/aop/logging/LoggingAspect.java`
-- clase 'ReservationProcessEntity' grande (LOC=85, métodos=20, campos=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/persistence/entity/ReservationProcessEntity.java`
-- clase 'ReservationProcessEntity' con baja cohesión (5%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/persistence/entity/ReservationProcessEntity.java`
-- clase 'KafkaPhoneSubmissionPublisher' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisher.java`
-- clase 'ReservationActionsListener' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java`
-- método 'ReservationActionsListener.toType' con complejidad 8 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java`
-- clase 'CatedraReservationsRestAdapter' con baja cohesión (33%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraReservationsRestAdapter.java`
-- método 'CatedraReservationsRestAdapter.listReservations' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraReservationsRestAdapter.java`
-- clase 'CatedraHoldRestAdapter' grande (LOC=96, métodos=18, campos=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
-- clase 'ReservationService' con baja cohesión (7%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java`
-- método 'RecoverPendingReservationsUseCaseImpl.recover' de 33 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java`
-- método 'RecoverPendingReservationsUseCaseImpl.recover' con complejidad 8 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java`
-- método 'RecoverPendingReservationsUseCaseImpl.reconcile' con complejidad 9 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java`
-- clase 'StartReservationUseCaseImpl' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
-- método 'StartReservationUseCaseImpl.startReservation' de 41 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
-- método 'StartReservationUseCaseImpl.startReservation' con complejidad 7 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
-- método 'ProcessReservationEventUseCaseImpl.process' con complejidad 9 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImpl.java`
-- clase 'SubmitPhoneUseCaseImpl' con baja cohesión (0%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
-- método 'SubmitPhoneUseCaseImpl.submitPhone' de 44 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
-- clase 'ReservationProcess' grande (LOC=102, métodos=15, campos=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java`
-- clase 'ReservationProcess' con baja cohesión (7%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java`
-- método 'ReservationStatus.allowedNext' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationStatus.java`
-- método 'CatalogRestAdapter.ProfessionalDto' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java`
-- método 'ProfessionalDto.ProfessionalDto' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java`
-- método 'GetAvailabilityUseCaseImpl.getAvailability' de 31 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/application/usecases/GetAvailabilityUseCaseImpl.java`
-- método 'Professional.Professional' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/domain/model/Professional.java`
-- clase 'UserService' grande (LOC=235, métodos=33, campos=4) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java`
-- método 'UserService.registerUser' de 34 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java`
-- método 'UserService.createUser' de 33 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java`
-- método 'UserService.updateUser' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java`
-- clase 'MailService' con baja cohesión (48%) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/MailService.java`
-- método 'MailService.sendEmail' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/service/MailService.java`
-- método 'MailService.sendEmailSync' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/service/MailService.java`
-- clase 'UserMapper' grande (LOC=112, métodos=13, campos=0) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/mapper/UserMapper.java`
-- clase 'PasswordChangeDTO' con baja cohesión (40%) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/PasswordChangeDTO.java`
-- clase 'AdminUserDTO' grande (LOC=140, métodos=29, campos=14) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/AdminUserDTO.java`
-- clase 'AdminUserDTO' con baja cohesión (16%) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/AdminUserDTO.java`
-- clase 'UserDTO' con baja cohesión (31%) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/UserDTO.java`
-- clase 'SecurityMetersService' grande (LOC=35, métodos=7, campos=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/management/SecurityMetersService.java`
-- clase 'SecurityMetersService' con baja cohesión (33%) — `src/main/java/ar/edu/um/prog2/camus/turnos/management/SecurityMetersService.java`
-- método 'SecurityConfiguration.filterChain' de 30 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/config/SecurityConfiguration.java`
-- método 'Retry.withBackoff' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/retry/Retry.java`
-- clase 'Authority' grande (LOC=64, métodos=10, campos=3) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
-- clase 'Authority' con baja cohesión (24%) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
-- clase 'AbstractAuditingEntity' con baja cohesión (14%) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- clase 'User' grande (LOC=165, métodos=29, campos=14) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- clase 'User' con baja cohesión (8%) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- clase 'AuthenticateController' con baja cohesión (14%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java`
-- clase 'AccountResource' grande (LOC=156, métodos=10, campos=5) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResource.java`
-- clase 'AccountResource' con baja cohesión (49%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResource.java`
-- clase 'ErrorConstants' grande (LOC=11, métodos=1, campos=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ErrorConstants.java`
-- clase 'ExceptionTranslator' grande (LOC=228, métodos=26, campos=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
-- clase 'ExceptionTranslator' con baja cohesión (1%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
-- método 'ExceptionTranslator.customizeProblem' de 30 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
-- método 'ExceptionTranslator.customizeProblem' con complejidad 10 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
-- método 'ExceptionTranslator.getCustomizedErrorDetails' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
-- método 'ExceptionTranslator.getMappedStatus' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
-- método 'ExceptionTranslator.resolveCode' con complejidad 13 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
-- clase 'ManagedUserVM' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/vm/ManagedUserVM.java`
-- clase 'LoginVM' con baja cohesión (33%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/vm/LoginVM.java`
+**Archivos con más señales**
+
+| Archivo | Señales |
+|---|---:|
+| `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java` | 11 |
+| `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java` | 11 |
+| `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java` | 10 |
+| `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java` | 7 |
+| `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java` | 7 |
+| `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java` | 6 |
+| `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java` | 5 |
+| `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java` | 4 |
+| `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java` | 4 |
+| `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java` | 4 |
 
 **DIP/concretos** (57)
-- clase 'TurnosApp' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java`
-- clase 'DomainUserDetailsService' muy acoplada (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java`
-- clase 'DomainUserDetailsService' instancia 5 concretos (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java`
-- clase 'SecurityUtils' muy acoplada (CBO=17) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java`
-- clase 'LoggingAspect' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/aop/logging/LoggingAspect.java`
-- clase 'ReservationRecoveryScheduler' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/scheduling/ReservationRecoveryScheduler.java`
-- clase 'ReservationProcessEntity' muy acoplada (CBO=9) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/persistence/entity/ReservationProcessEntity.java`
-- clase 'KafkaPhoneSubmissionPublisher' muy acoplada (CBO=22) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisher.java`
-- clase 'ReservationActionsListener' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java`
-- clase 'CatedraReservationsRestAdapter' muy acoplada (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraReservationsRestAdapter.java`
-- clase 'CatedraHoldRestAdapter' muy acoplada (CBO=30) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
-- clase 'CatedraHoldRestAdapter' instancia 8 concretos (CBO=30) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
-- clase 'JhipsterCurrentUserAdapter' muy acoplada (CBO=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/user/JhipsterCurrentUserAdapter.java`
-- clase 'ReservationController' muy acoplada (CBO=11) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/web/controller/ReservationController.java`
-- clase 'ReservationService' muy acoplada (CBO=13) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java`
-- clase 'RecoverPendingReservationsUseCaseImpl' muy acoplada (CBO=31) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java`
-- clase 'CancelReservationUseCaseImpl' muy acoplada (CBO=21) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/CancelReservationUseCaseImpl.java`
-- clase 'StartReservationUseCaseImpl' muy acoplada (CBO=31) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
-- clase 'StartReservationUseCaseImpl' instancia 4 concretos (CBO=31) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java`
-- clase 'ProcessReservationEventUseCaseImpl' muy acoplada (CBO=20) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImpl.java`
-- clase 'SubmitPhoneUseCaseImpl' muy acoplada (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
-- clase 'SubmitPhoneUseCaseImpl' instancia 5 concretos (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java`
-- clase 'HoldClient' muy acoplada (CBO=9) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/ports/out/HoldClient.java`
-- clase 'ReservationProcess' muy acoplada (CBO=13) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java`
-- clase 'ReservationStatus' muy acoplada (CBO=11) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationStatus.java`
-- clase 'CatedraOccupancyRestAdapter' muy acoplada (CBO=18) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatedraOccupancyRestAdapter.java`
-- clase 'CatedraOccupancyRestAdapter' instancia 3 concretos (CBO=18) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatedraOccupancyRestAdapter.java`
-- clase 'CatalogRestAdapter' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java`
-- clase 'CatalogRestAdapter' instancia 5 concretos (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java`
-- clase 'AvailabilityController' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/web/controller/AvailabilityController.java`
-- clase 'AvailabilityService' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/application/service/AvailabilityService.java`
-- clase 'GetAvailabilityUseCaseImpl' muy acoplada (CBO=9) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/application/usecases/GetAvailabilityUseCaseImpl.java`
-- clase 'UserService' muy acoplada (CBO=36) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java`
-- clase 'UserService' instancia 5 concretos (CBO=36) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java`
-- clase 'MailService' muy acoplada (CBO=21) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/MailService.java`
-- clase 'AdminUserDTO' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/AdminUserDTO.java`
-- clase 'WebConfigurer' muy acoplada (CBO=13) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/WebConfigurer.java`
-- clase 'LiquibaseConfiguration' muy acoplada (CBO=18) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/LiquibaseConfiguration.java`
-- clase 'CRLFLogConverter' muy acoplada (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/CRLFLogConverter.java`
-- clase 'SecurityJwtConfiguration' muy acoplada (CBO=19) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/SecurityJwtConfiguration.java`
-- clase 'SecurityConfiguration' muy acoplada (CBO=14) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/SecurityConfiguration.java`
-- clase 'AsyncConfiguration' muy acoplada (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/AsyncConfiguration.java`
-- clase 'AsyncConfiguration' instancia 3 concretos (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/AsyncConfiguration.java`
-- clase 'RestClientsConfig' muy acoplada (CBO=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/config/RestClientsConfig.java`
-- clase 'Retry' muy acoplada (CBO=14) — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/retry/Retry.java`
-- clase 'User' muy acoplada (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- clase 'AuthorityResource' muy acoplada (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthorityResource.java`
-- clase 'AuthenticateController' muy acoplada (CBO=33) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java`
-- clase 'AuthenticateController' instancia 3 concretos (CBO=33) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java`
-- clase 'PublicUserResource' muy acoplada (CBO=18) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/PublicUserResource.java`
-- clase 'AccountResource' muy acoplada (CBO=39) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResource.java`
-- clase 'AccountResource' instancia 9 concretos (CBO=39) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResource.java`
-- clase 'UserResource' muy acoplada (CBO=46) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java`
-- clase 'UserResource' instancia 6 concretos (CBO=46) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java`
-- clase 'BadRequestAlertException' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/BadRequestAlertException.java`
-- clase 'ExceptionTranslator' muy acoplada (CBO=79) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
-- clase 'ExceptionTranslator' instancia 4 concretos (CBO=79) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
+- clase 'TurnosApp' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java:24`
+- clase 'LoggingAspect' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/aop/logging/LoggingAspect.java:22`
+- clase 'AvailabilityService' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/application/service/AvailabilityService.java:12`
+- clase 'GetAvailabilityUseCaseImpl' muy acoplada (CBO=9) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/application/usecases/GetAvailabilityUseCaseImpl.java:20`
+- clase 'CatalogRestAdapter' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java:26`
+- clase 'CatalogRestAdapter' instancia 5 concretos (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java:26`
+- clase 'CatedraOccupancyRestAdapter' muy acoplada (CBO=18) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatedraOccupancyRestAdapter.java:21`
+- clase 'CatedraOccupancyRestAdapter' instancia 3 concretos (CBO=18) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatedraOccupancyRestAdapter.java:21`
+- clase 'AvailabilityController' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/web/controller/AvailabilityController.java:17`
+- clase 'AsyncConfiguration' muy acoplada (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/AsyncConfiguration.java:22`
+- clase 'AsyncConfiguration' instancia 3 concretos (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/AsyncConfiguration.java:22`
+- clase 'CRLFLogConverter' muy acoplada (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/CRLFLogConverter.java:23`
+- clase 'LiquibaseConfiguration' muy acoplada (CBO=18) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/LiquibaseConfiguration.java:22`
+- clase 'SecurityConfiguration' muy acoplada (CBO=14) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/SecurityConfiguration.java:21`
+- clase 'SecurityJwtConfiguration' muy acoplada (CBO=19) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/SecurityJwtConfiguration.java:21`
+- clase 'WebConfigurer' muy acoplada (CBO=13) — `src/main/java/ar/edu/um/prog2/camus/turnos/config/WebConfigurer.java:21`
+- clase 'User' muy acoplada (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:24`
+- clase 'ReservationService' muy acoplada (CBO=13) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java:17`
+- clase 'CancelReservationUseCaseImpl' muy acoplada (CBO=21) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/CancelReservationUseCaseImpl.java:15`
+- clase 'ProcessReservationEventUseCaseImpl' muy acoplada (CBO=20) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImpl.java:16`
+- clase 'RecoverPendingReservationsUseCaseImpl' muy acoplada (CBO=31) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java:23`
+- clase 'StartReservationUseCaseImpl' muy acoplada (CBO=31) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java:21`
+- clase 'StartReservationUseCaseImpl' instancia 4 concretos (CBO=31) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java:21`
+- clase 'SubmitPhoneUseCaseImpl' muy acoplada (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java:18`
+- clase 'SubmitPhoneUseCaseImpl' instancia 5 concretos (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java:18`
+- clase 'ReservationProcess' muy acoplada (CBO=13) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java:10`
+- clase 'ReservationStatus' muy acoplada (CBO=11) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationStatus.java:6`
+- clase 'HoldClient' muy acoplada (CBO=9) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/ports/out/HoldClient.java:8`
+- clase 'CatedraHoldRestAdapter' muy acoplada (CBO=30) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java:23`
+- clase 'CatedraHoldRestAdapter' instancia 8 concretos (CBO=30) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java:23`
+- clase 'CatedraReservationsRestAdapter' muy acoplada (CBO=12) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraReservationsRestAdapter.java:20`
+- clase 'KafkaPhoneSubmissionPublisher' muy acoplada (CBO=22) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/KafkaPhoneSubmissionPublisher.java:22`
+- clase 'ReservationActionsListener' muy acoplada (CBO=24) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java:17`
+- clase 'ReservationProcessEntity' muy acoplada (CBO=9) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/persistence/entity/ReservationProcessEntity.java:19`
+- clase 'ReservationRecoveryScheduler' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/scheduling/ReservationRecoveryScheduler.java:14`
+- clase 'JhipsterCurrentUserAdapter' muy acoplada (CBO=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/user/JhipsterCurrentUserAdapter.java:13`
+- clase 'ReservationController' muy acoplada (CBO=11) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/web/controller/ReservationController.java:23`
+- clase 'DomainUserDetailsService' muy acoplada (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java:22`
+- clase 'DomainUserDetailsService' instancia 5 concretos (CBO=16) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java:22`
+- clase 'SecurityUtils' muy acoplada (CBO=17) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java:19`
+- clase 'MailService' muy acoplada (CBO=21) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/MailService.java:26`
+- clase 'UserService' muy acoplada (CBO=36) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java:31`
+- clase 'UserService' instancia 5 concretos (CBO=36) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java:31`
+- clase 'AdminUserDTO' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/AdminUserDTO.java:16`
+- clase 'RestClientsConfig' muy acoplada (CBO=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/config/RestClientsConfig.java:16`
+- clase 'Retry' muy acoplada (CBO=14) — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/retry/Retry.java:15`
+- clase 'AccountResource' muy acoplada (CBO=39) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResource.java:31`
+- clase 'AccountResource' instancia 9 concretos (CBO=39) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResource.java:31`
+- clase 'AuthenticateController' muy acoplada (CBO=33) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java:37`
+- clase 'AuthenticateController' instancia 3 concretos (CBO=33) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java:37`
+- clase 'AuthorityResource' muy acoplada (CBO=26) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthorityResource.java:27`
+- clase 'PublicUserResource' muy acoplada (CBO=18) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/PublicUserResource.java:20`
+- clase 'UserResource' muy acoplada (CBO=46) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:60`
+- clase 'UserResource' instancia 6 concretos (CBO=46) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:60`
+- clase 'BadRequestAlertException' muy acoplada (CBO=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/BadRequestAlertException.java:11`
+- clase 'ExceptionTranslator' muy acoplada (CBO=79) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:51`
+- clase 'ExceptionTranslator' instancia 4 concretos (CBO=79) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:51`
+
+**SRP/responsabilidad** (70)
+- método 'TurnosApp.logApplicationStartup' de 35 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/TurnosApp.java:74`
+- clase 'LoggingAspect' grande (LOC=100, métodos=15, campos=1) — `src/main/java/ar/edu/um/prog2/camus/turnos/aop/logging/LoggingAspect.java:22`
+- método 'GetAvailabilityUseCaseImpl.getAvailability' de 31 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/application/usecases/GetAvailabilityUseCaseImpl.java:31`
+- método 'Professional.Professional' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/domain/model/Professional.java:3`
+- método 'WeeklySchedule.WeeklySchedule' con 7 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/domain/model/WeeklySchedule.java:6`
+- método 'CatalogRestAdapter.ProfessionalDto' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java:84`
+- método 'ProfessionalDto.ProfessionalDto' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java:84`
+- método 'CatalogRestAdapter.ScheduleDto' con 7 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java:87`
+- método 'ScheduleDto.ScheduleDto' con 7 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java:87`
+- método 'LiquibaseConfiguration.liquibase' de 50 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/config/LiquibaseConfiguration.java:33`
+- método 'SecurityConfiguration.filterChain' de 30 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/config/SecurityConfiguration.java:35`
+- clase 'AbstractAuditingEntity' con baja cohesión (14%) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:23`
+- clase 'Authority' grande (LOC=64, métodos=10, campos=3) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java:18`
+- clase 'Authority' con baja cohesión (24%) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java:18`
+- clase 'User' grande (LOC=165, métodos=29, campos=14) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:24`
+- clase 'User' con baja cohesión (8%) — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:24`
+- clase 'SecurityMetersService' grande (LOC=35, métodos=6, campos=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/management/SecurityMetersService.java:8`
+- clase 'SecurityMetersService' con baja cohesión (27%) — `src/main/java/ar/edu/um/prog2/camus/turnos/management/SecurityMetersService.java:8`
+- clase 'ReservationService' con baja cohesión (33%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java:17`
+- método 'ReservationService.ReservationService' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/service/ReservationService.java:25`
+- método 'ProcessReservationEventUseCaseImpl.process' con complejidad 9 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/ProcessReservationEventUseCaseImpl.java:30`
+- método 'RecoverPendingReservationsUseCaseImpl.recover' de 33 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java:43`
+- método 'RecoverPendingReservationsUseCaseImpl.recover' con complejidad 8 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java:43`
+- método 'RecoverPendingReservationsUseCaseImpl.reconcile' con complejidad 9 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/RecoverPendingReservationsUseCaseImpl.java:93`
+- método 'StartReservationUseCaseImpl.startReservation' de 41 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java:41`
+- método 'StartReservationUseCaseImpl.startReservation' con complejidad 7 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/StartReservationUseCaseImpl.java:41`
+- método 'SubmitPhoneUseCaseImpl.submitPhone' de 44 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/application/usecases/SubmitPhoneUseCaseImpl.java:35`
+- método 'PhoneSubmission.PhoneSubmission' con 6 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/PhoneSubmission.java:5`
+- clase 'ReservationProcess' grande (LOC=102, métodos=17, campos=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java:10`
+- clase 'ReservationProcess' con baja cohesión (25%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java:10`
+- método 'ReservationProcess.ReservationProcess' con 7 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java:23`
+- método 'ReservationProcess.restore' con 10 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationProcess.java:43`
+- método 'ReservationStatus.allowedNext' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/domain/model/ReservationStatus.java:17`
+- clase 'CatedraHoldRestAdapter' grande (LOC=96, métodos=14, campos=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java:23`
+- clase 'CatedraReservationsRestAdapter' con baja cohesión (33%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraReservationsRestAdapter.java:20`
+- método 'CatedraReservationsRestAdapter.listReservations' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraReservationsRestAdapter.java:34`
+- clase 'ReservationActionsListener' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java:17`
+- método 'ReservationActionsListener.toType' con complejidad 8 — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/messaging/ReservationActionsListener.java:57`
+- clase 'ReservationProcessEntity' grande (LOC=85, métodos=20, campos=10) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/persistence/entity/ReservationProcessEntity.java:19`
+- clase 'ReservationProcessEntity' con baja cohesión (5%) — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/persistence/entity/ReservationProcessEntity.java:19`
+- método 'ReservationProcessResponse.ReservationProcessResponse' con 6 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/web/dto/ReservationProcessResponse.java:3`
+- clase 'DomainUserDetailsService' con baja cohesión (7%) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/DomainUserDetailsService.java:22`
+- clase 'SecurityUtils' grande (LOC=97, métodos=11, campos=3) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java:19`
+- clase 'SecurityUtils' con baja cohesión (0%) — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java:19`
+- clase 'MailService' con baja cohesión (43%) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/MailService.java:26`
+- método 'MailService.sendEmail' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/service/MailService.java:55`
+- método 'MailService.sendEmailSync' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/service/MailService.java:59`
+- clase 'UserService' grande (LOC=235, métodos=29, campos=4) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java:31`
+- método 'UserService.registerUser' de 34 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java:82`
+- método 'UserService.createUser' de 33 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java:126`
+- método 'UserService.updateUser' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/service/UserService.java:212`
+- clase 'AdminUserDTO' grande (LOC=140, métodos=29, campos=14) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/AdminUserDTO.java:16`
+- clase 'AdminUserDTO' con baja cohesión (16%) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/AdminUserDTO.java:16`
+- clase 'PasswordChangeDTO' con baja cohesión (40%) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/PasswordChangeDTO.java:9`
+- clase 'UserDTO' con baja cohesión (31%) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/dto/UserDTO.java:11`
+- clase 'UserMapper' grande (LOC=112, métodos=14, campos=0) — `src/main/java/ar/edu/um/prog2/camus/turnos/service/mapper/UserMapper.java:21`
+- método 'Retry.withBackoff' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/retry/Retry.java:21`
+- clase 'AccountResource' grande (LOC=156, métodos=10, campos=5) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResource.java:31`
+- clase 'AuthenticateController' con baja cohesión (24%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java:37`
+- clase 'ErrorConstants' grande (LOC=11, métodos=1, campos=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ErrorConstants.java:5`
+- clase 'ExceptionTranslator' grande (LOC=228, métodos=26, campos=8) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:51`
+- clase 'ExceptionTranslator' con baja cohesión (1%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:51`
+- método 'ExceptionTranslator.handleExceptionInternal' con 5 parámetros — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:80`
+- método 'ExceptionTranslator.customizeProblem' de 30 líneas — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:118`
+- método 'ExceptionTranslator.customizeProblem' con complejidad 10 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:118`
+- método 'ExceptionTranslator.getCustomizedErrorDetails' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:228`
+- método 'ExceptionTranslator.getMappedStatus' con complejidad 6 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:238`
+- método 'ExceptionTranslator.resolveCode' con complejidad 13 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:293`
+- clase 'LoginVM' con baja cohesión (33%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/vm/LoginVM.java:9`
+- clase 'ManagedUserVM' con baja cohesión (17%) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/vm/ManagedUserVM.java:9`
 
 **OCP/type-switch** (8)
-- clase 'SecurityUtils' con 7 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java`
-- clase 'CatedraHoldRestAdapter' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java`
-- clase 'CatalogRestAdapter' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java`
-- clase 'Retry' con 2 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/retry/Retry.java`
-- clase 'Authority' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
-- clase 'User' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- clase 'AuthenticateController' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java`
-- clase 'ExceptionTranslator' con 29 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java`
+- clase 'CatalogRestAdapter' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/availability/infrastructure/client/CatalogRestAdapter.java:26`
+- clase 'Authority' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java:18`
+- clase 'User' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:24`
+- clase 'CatedraHoldRestAdapter' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/reservation/infrastructure/client/CatedraHoldRestAdapter.java:23`
+- clase 'SecurityUtils' con 7 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/security/SecurityUtils.java:19`
+- clase 'Retry' con 2 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/shared/infrastructure/retry/Retry.java:15`
+- clase 'AuthenticateController' con 1 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/AuthenticateController.java:37`
+- clase 'ExceptionTranslator' con 29 type-checks — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ExceptionTranslator.java:51`
 
 **POO** (2)
-- clase 'SecurityMetersService' con 4 campos públicos (encapsulación) — `src/main/java/ar/edu/um/prog2/camus/turnos/management/SecurityMetersService.java`
-- clase 'ErrorConstants' con 8 campos públicos (encapsulación) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ErrorConstants.java`
+- clase 'SecurityMetersService' con 4 campos públicos (encapsulación) — `src/main/java/ar/edu/um/prog2/camus/turnos/management/SecurityMetersService.java:8`
+- clase 'ErrorConstants' con 8 campos públicos (encapsulación) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/ErrorConstants.java:5`
 
 **?** (2)
-- clase 'LoginAlreadyUsedException' con herencia profunda (DIT=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/LoginAlreadyUsedException.java`
-- clase 'EmailAlreadyUsedException' con herencia profunda (DIT=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/EmailAlreadyUsedException.java`
+- clase 'EmailAlreadyUsedException' con herencia profunda (DIT=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/EmailAlreadyUsedException.java:6`
+- clase 'LoginAlreadyUsedException' con herencia profunda (DIT=2) — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/errors/LoginAlreadyUsedException.java:6`
 
 **duplicación** (6)
 - duplicación lógica: 9.2% · boilerplate: 3.3%
-- bloque de 8 líneas repetido 4 veces en src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:63, src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:64, src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:65 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java`
-- bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:413, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:452, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:490 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:415, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:454, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:492 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:416, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:455, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:493 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
-- bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:414, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:453, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:491 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java`
+- bloque de 8 líneas repetido 4 veces en src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:63, src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:64, src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:65 — `src/main/java/ar/edu/um/prog2/camus/turnos/web/rest/UserResource.java:63`
+- bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:413, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:452, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:490 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:413`
+- bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:414, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:453, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:491 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:414`
+- bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:415, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:454, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:492 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:415`
+- bloque de 8 líneas repetido 4 veces en src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:416, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:455, src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:493 — `src/test/java/ar/edu/um/prog2/camus/turnos/web/rest/AccountResourceIT.java:416`
 
 **hexagonal** (20)
-- domain importa framework/infra: import com.fasterxml.jackson.annotation.JsonIgnoreProperties; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
-- domain importa framework/infra: import jakarta.persistence.*; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
-- domain importa framework/infra: import jakarta.validation.constraints.*; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
-- domain importa framework/infra: import org.springframework.data.domain.Persistable; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java`
-- domain importa framework/infra: import com.fasterxml.jackson.annotation.JsonIgnoreProperties; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- domain importa framework/infra: import jakarta.persistence.Column; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- domain importa framework/infra: import jakarta.persistence.EntityListeners; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- domain importa framework/infra: import jakarta.persistence.MappedSuperclass; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- domain importa framework/infra: import org.springframework.data.annotation.CreatedBy; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- domain importa framework/infra: import org.springframework.data.annotation.CreatedDate; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- domain importa framework/infra: import org.springframework.data.annotation.LastModifiedBy; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- domain importa framework/infra: import org.springframework.data.annotation.LastModifiedDate; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- domain importa framework/infra: import org.springframework.data.jpa.domain.support.AuditingEntityListener; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java`
-- domain importa framework/infra: import com.fasterxml.jackson.annotation.JsonIgnore; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- domain importa framework/infra: import jakarta.persistence.*; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- domain importa framework/infra: import jakarta.validation.constraints.Email; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- domain importa framework/infra: import jakarta.validation.constraints.NotNull; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- domain importa framework/infra: import jakarta.validation.constraints.Pattern; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- domain importa framework/infra: import jakarta.validation.constraints.Size; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
-- domain importa framework/infra: import org.hibernate.annotations.BatchSize; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java`
+- domain importa framework/infra: import com.fasterxml.jackson.annotation.JsonIgnoreProperties; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:3`
+- domain importa framework/infra: import jakarta.persistence.Column; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:4`
+- domain importa framework/infra: import jakarta.persistence.EntityListeners; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:5`
+- domain importa framework/infra: import jakarta.persistence.MappedSuperclass; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:6`
+- domain importa framework/infra: import org.springframework.data.annotation.CreatedBy; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:10`
+- domain importa framework/infra: import org.springframework.data.annotation.CreatedDate; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:11`
+- domain importa framework/infra: import org.springframework.data.annotation.LastModifiedBy; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:12`
+- domain importa framework/infra: import org.springframework.data.annotation.LastModifiedDate; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:13`
+- domain importa framework/infra: import org.springframework.data.jpa.domain.support.AuditingEntityListener; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/AbstractAuditingEntity.java:14`
+- domain importa framework/infra: import com.fasterxml.jackson.annotation.JsonIgnoreProperties; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java:3`
+- domain importa framework/infra: import jakarta.persistence.*; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java:4`
+- domain importa framework/infra: import jakarta.validation.constraints.*; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java:5`
+- domain importa framework/infra: import org.springframework.data.domain.Persistable; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/Authority.java:9`
+- domain importa framework/infra: import com.fasterxml.jackson.annotation.JsonIgnore; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:4`
+- domain importa framework/infra: import jakarta.persistence.*; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:5`
+- domain importa framework/infra: import jakarta.validation.constraints.Email; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:6`
+- domain importa framework/infra: import jakarta.validation.constraints.NotNull; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:7`
+- domain importa framework/infra: import jakarta.validation.constraints.Pattern; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:8`
+- domain importa framework/infra: import jakarta.validation.constraints.Size; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:9`
+- domain importa framework/infra: import org.hibernate.annotations.BatchSize; — `src/main/java/ar/edu/um/prog2/camus/turnos/domain/User.java:17`
 
 ## 6. Evolución por commit
 
