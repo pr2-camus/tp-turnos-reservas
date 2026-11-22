@@ -1,14 +1,14 @@
 package ar.edu.um.prog2.camus.turnos.web.rest;
 
-import static ar.edu.um.prog2.camus.turnos.domain.AuthorityAsserts.*;
+import static ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.AuthorityAsserts.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import ar.edu.um.prog2.camus.turnos.IntegrationTest;
-import ar.edu.um.prog2.camus.turnos.domain.Authority;
 import ar.edu.um.prog2.camus.turnos.repository.AuthorityRepository;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.Authority;
 import jakarta.persistence.EntityManager;
 import java.util.UUID;
 import org.junit.jupiter.api.AfterEach;

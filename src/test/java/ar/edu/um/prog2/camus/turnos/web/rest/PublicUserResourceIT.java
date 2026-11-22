@@ -5,10 +5,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import ar.edu.um.prog2.camus.turnos.IntegrationTest;
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.repository.UserRepository;
 import ar.edu.um.prog2.camus.turnos.security.AuthoritiesConstants;
 import ar.edu.um.prog2.camus.turnos.service.UserService;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import java.util.Set;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

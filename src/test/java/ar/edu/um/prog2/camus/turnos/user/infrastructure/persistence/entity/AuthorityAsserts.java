@@ -1,4 +1,4 @@
-package ar.edu.um.prog2.camus.turnos.domain;
+package ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

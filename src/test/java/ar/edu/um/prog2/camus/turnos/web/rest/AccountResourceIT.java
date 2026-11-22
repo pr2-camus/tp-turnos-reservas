@@ -6,13 +6,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import ar.edu.um.prog2.camus.turnos.IntegrationTest;
 import ar.edu.um.prog2.camus.turnos.config.Constants;
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.repository.AuthorityRepository;
 import ar.edu.um.prog2.camus.turnos.repository.UserRepository;
 import ar.edu.um.prog2.camus.turnos.security.AuthoritiesConstants;
 import ar.edu.um.prog2.camus.turnos.service.UserService;
 import ar.edu.um.prog2.camus.turnos.service.dto.AdminUserDTO;
 import ar.edu.um.prog2.camus.turnos.service.dto.PasswordChangeDTO;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import ar.edu.um.prog2.camus.turnos.web.rest.vm.KeyAndPasswordVM;
 import ar.edu.um.prog2.camus.turnos.web.rest.vm.ManagedUserVM;
 import java.time.Instant;

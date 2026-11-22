@@ -7,7 +7,7 @@ import static org.mockito.Mockito.*;
 
 import ar.edu.um.prog2.camus.turnos.IntegrationTest;
 import ar.edu.um.prog2.camus.turnos.config.Constants;
-import ar.edu.um.prog2.camus.turnos.domain.User;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import jakarta.mail.Multipart;
 import jakarta.mail.Session;
 import jakarta.mail.internet.MimeBodyPart;

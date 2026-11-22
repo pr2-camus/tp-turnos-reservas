@@ -1,7 +1,7 @@
 package ar.edu.um.prog2.camus.turnos.web.rest;
 
-import ar.edu.um.prog2.camus.turnos.domain.Authority;
 import ar.edu.um.prog2.camus.turnos.repository.AuthorityRepository;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.Authority;
 import ar.edu.um.prog2.camus.turnos.web.rest.errors.BadRequestAlertException;
 import jakarta.validation.Valid;
 import java.net.URI;
@@ -19,7 +19,7 @@ import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
 
 /**
- * REST controller for managing {@link ar.edu.um.prog2.camus.turnos.domain.Authority}.
+ * REST controller for managing {@link ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.Authority}.
  */
 @RestController
 @RequestMapping("/api/authorities")

@@ -1,9 +1,9 @@
 package ar.edu.um.prog2.camus.turnos.service.mapper;
 
-import ar.edu.um.prog2.camus.turnos.domain.Authority;
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.service.dto.AdminUserDTO;
 import ar.edu.um.prog2.camus.turnos.service.dto.UserDTO;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.Authority;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import java.util.*;
 import java.util.stream.Collectors;
 import org.mapstruct.BeanMapping;
