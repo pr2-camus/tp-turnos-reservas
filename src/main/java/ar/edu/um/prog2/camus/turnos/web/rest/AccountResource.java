@@ -1,12 +1,12 @@
 package ar.edu.um.prog2.camus.turnos.web.rest;
 
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.repository.UserRepository;
 import ar.edu.um.prog2.camus.turnos.security.SecurityUtils;
 import ar.edu.um.prog2.camus.turnos.service.MailService;
 import ar.edu.um.prog2.camus.turnos.service.UserService;
 import ar.edu.um.prog2.camus.turnos.service.dto.AdminUserDTO;
 import ar.edu.um.prog2.camus.turnos.service.dto.PasswordChangeDTO;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import ar.edu.um.prog2.camus.turnos.web.rest.errors.*;
 import ar.edu.um.prog2.camus.turnos.web.rest.vm.KeyAndPasswordVM;
 import ar.edu.um.prog2.camus.turnos.web.rest.vm.ManagedUserVM;

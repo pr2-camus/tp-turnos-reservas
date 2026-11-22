@@ -1,6 +1,6 @@
 package ar.edu.um.prog2.camus.turnos.service.dto;
 
-import ar.edu.um.prog2.camus.turnos.domain.User;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;

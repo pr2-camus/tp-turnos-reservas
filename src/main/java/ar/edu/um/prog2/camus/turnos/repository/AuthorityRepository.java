@@ -1,6 +1,6 @@
 package ar.edu.um.prog2.camus.turnos.repository;
 
-import ar.edu.um.prog2.camus.turnos.domain.Authority;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.Authority;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 

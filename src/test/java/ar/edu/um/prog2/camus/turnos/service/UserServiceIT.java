@@ -4,8 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import ar.edu.um.prog2.camus.turnos.IntegrationTest;
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.repository.UserRepository;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

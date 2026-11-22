@@ -1,8 +1,8 @@
 package ar.edu.um.prog2.camus.turnos.security;
 
-import ar.edu.um.prog2.camus.turnos.domain.Authority;
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.repository.UserRepository;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.Authority;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import java.util.*;
 import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
 import org.slf4j.Logger;

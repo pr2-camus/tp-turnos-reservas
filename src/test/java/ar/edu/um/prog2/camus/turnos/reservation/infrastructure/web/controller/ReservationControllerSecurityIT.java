@@ -12,7 +12,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import ar.edu.um.prog2.camus.turnos.IntegrationTest;
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.repository.UserRepository;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.model.CatedraReservation;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.model.CatedraReservationStatus;
@@ -22,6 +21,7 @@ import ar.edu.um.prog2.camus.turnos.reservation.domain.ports.in.RecoverPendingRe
 import ar.edu.um.prog2.camus.turnos.reservation.domain.ports.out.CatedraReservationsClient;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.ports.out.HoldClient;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.ports.out.ReservationProcessRepository;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import ar.edu.um.prog2.camus.turnos.web.rest.vm.LoginVM;
 import com.jayway.jsonpath.JsonPath;
 import java.time.Instant;

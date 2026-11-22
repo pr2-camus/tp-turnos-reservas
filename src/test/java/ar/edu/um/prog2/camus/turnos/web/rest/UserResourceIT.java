@@ -6,12 +6,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import ar.edu.um.prog2.camus.turnos.IntegrationTest;
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.repository.UserRepository;
 import ar.edu.um.prog2.camus.turnos.security.AuthoritiesConstants;
 import ar.edu.um.prog2.camus.turnos.service.UserService;
 import ar.edu.um.prog2.camus.turnos.service.dto.AdminUserDTO;
 import ar.edu.um.prog2.camus.turnos.service.mapper.UserMapper;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import jakarta.persistence.EntityManager;
 import java.util.*;
 import java.util.function.Consumer;

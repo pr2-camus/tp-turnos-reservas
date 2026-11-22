@@ -1,6 +1,6 @@
-package ar.edu.um.prog2.camus.turnos.domain;
+package ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity;
 
-import static ar.edu.um.prog2.camus.turnos.domain.AuthorityTestSamples.*;
+import static ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.AuthorityTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import ar.edu.um.prog2.camus.turnos.web.rest.TestUtil;

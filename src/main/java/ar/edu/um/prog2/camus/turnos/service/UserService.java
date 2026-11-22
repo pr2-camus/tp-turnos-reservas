@@ -1,14 +1,14 @@
 package ar.edu.um.prog2.camus.turnos.service;
 
 import ar.edu.um.prog2.camus.turnos.config.Constants;
-import ar.edu.um.prog2.camus.turnos.domain.Authority;
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.repository.AuthorityRepository;
 import ar.edu.um.prog2.camus.turnos.repository.UserRepository;
 import ar.edu.um.prog2.camus.turnos.security.AuthoritiesConstants;
 import ar.edu.um.prog2.camus.turnos.security.SecurityUtils;
 import ar.edu.um.prog2.camus.turnos.service.dto.AdminUserDTO;
 import ar.edu.um.prog2.camus.turnos.service.dto.UserDTO;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.Authority;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;

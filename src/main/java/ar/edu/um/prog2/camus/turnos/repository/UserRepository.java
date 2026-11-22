@@ -1,6 +1,6 @@
 package ar.edu.um.prog2.camus.turnos.repository;
 
-import ar.edu.um.prog2.camus.turnos.domain.User;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;

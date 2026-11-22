@@ -1,12 +1,12 @@
 package ar.edu.um.prog2.camus.turnos.reservation.infrastructure.user;
 
-import ar.edu.um.prog2.camus.turnos.domain.User;
 import ar.edu.um.prog2.camus.turnos.error.BusinessException;
 import ar.edu.um.prog2.camus.turnos.error.ErrorKind;
 import ar.edu.um.prog2.camus.turnos.repository.UserRepository;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.model.ReservationUser;
 import ar.edu.um.prog2.camus.turnos.reservation.domain.ports.out.CurrentUserProvider;
 import ar.edu.um.prog2.camus.turnos.security.SecurityUtils;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component

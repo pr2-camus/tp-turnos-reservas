@@ -1,6 +1,6 @@
 package ar.edu.um.prog2.camus.turnos.service;
 
-import ar.edu.um.prog2.camus.turnos.domain.User;
+import ar.edu.um.prog2.camus.turnos.user.infrastructure.persistence.entity.User;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import java.nio.charset.StandardCharsets;
